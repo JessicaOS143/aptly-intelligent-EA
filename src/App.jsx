@@ -49,7 +49,7 @@ const SERVICES = [
      items: ["Custom branded design","NFC and QR-ready","Contact sharing built in","One-day turnaround"] },
 ];
 
-const COMPANIES = ["IBC Group","Medidata","BET Networks","Paramount","The Estee Lauder Companies"];
+const COMPANIES = ["IBC Group","Medidata","BET Networks","Paramount","The Estée Lauder Companies"];
 
 const UNLOCKS = [
   "Fewer decisions landing back on your plate",
@@ -82,7 +82,10 @@ const PLANS = [
     limited: true },
 ];
 
-const INDUSTRIES = ["Beauty","Finance","Insurance","Technology","Media","Security","Fashion","Events","SaaS","Web3"];
+const INDUSTRIES = [
+  "Beauty & Luxury","Investment","Insurance","Technology",
+  "Media","Security","Events","SaaS","Web3","Global Operations"
+];
 
 const SPRINTS = [
   { title: "Executive Flow Reset",       desc: "Stabilize inbox, calendar, priorities, and follow-through to restore calm and control."              },
@@ -504,15 +507,26 @@ export default function App() {
         minHeight: "100svh", position: "relative", overflow: "hidden",
         display: "flex", alignItems: "center", padding: `0 ${gutter}`, paddingTop: 68,
       }}>
-        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <div style={{ position: "absolute", inset: 0, zIndex: 0, background: "#141e36" }}>
+          {/* Portrait sits right — visible from head to waist, not cropped tight */}
           <img src={IMG.hero} alt="" role="presentation"
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block",
-              filter: "brightness(0.88) saturate(0.75)" }} />
-          {/* Soft blue-navy overlay, uniform and gentle */}
+            style={{
+              position: "absolute",
+              right: 0, top: 0,
+              width: desktop ? "54%" : tablet ? "70%" : "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center 10%",
+              display: "block",
+              filter: "brightness(0.80) saturate(0.68)",
+            }} />
+          {/* Left-to-right gradient keeps text readable, fades into portrait */}
           <div style={{ position: "absolute", inset: 0,
             background: desktop
-              ? "linear-gradient(to right, rgba(30,48,84,0.72) 0%, rgba(30,48,84,0.60) 50%, rgba(30,48,84,0.38) 100%)"
-              : "rgba(30,48,84,0.70)"
+              ? "linear-gradient(to right, rgba(20,30,54,1) 0%, rgba(20,30,54,0.97) 25%, rgba(20,30,54,0.72) 45%, rgba(20,30,54,0.18) 68%, rgba(20,30,54,0) 100%)"
+              : tablet
+              ? "linear-gradient(to right, rgba(20,30,54,0.97) 0%, rgba(20,30,54,0.75) 38%, rgba(20,30,54,0.25) 65%, rgba(20,30,54,0) 100%)"
+              : "rgba(20,30,54,0.75)"
           }} />
         </div>
 
@@ -961,79 +975,103 @@ export default function App() {
       <section style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
         <div style={{ maxWidth: mw, margin: "0 auto" }}>
           <Reveal>
+            {/* Eyebrow */}
+            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 18 }}>
+              Executive Experience
+            </div>
+
             {/* Main heading */}
             <h2 className="disp" style={{
-              fontSize: mobile ? "clamp(30px,9vw,44px)" : "clamp(36px,4.2vw,58px)",
-              color: "#1e3054", marginBottom: 20, lineHeight: 1.08,
+              fontSize: mobile ? "clamp(28px,8vw,40px)" : "clamp(32px,3.8vw,52px)",
+              color: "#1e3054", marginBottom: 32, lineHeight: 1.1,
             }}>
-              Trusted Across Industries
+              Supporting Leaders Across Industries<br />
+              <span style={{ color: "#4a6a9a" }}>for 15+ Years</span>
             </h2>
 
-            {/* Industry tags */}
-            <div style={{
-              display: "flex", flexWrap: "wrap", gap: "10px 12px",
-              marginBottom: 36,
-            }}>
+            {/* Industry badge chips */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 10px", marginBottom: 36 }}>
               {INDUSTRIES.map((ind, i) => (
-                <span key={i} style={{
-                  fontSize: 13.5, fontWeight: 500, color: "#2c4a7a",
-                  background: "#eef3fb", border: "1px solid #d4e2f4",
-                  padding: "6px 16px", letterSpacing: "0.02em",
-                  boxShadow: "0 1px 4px rgba(30,48,84,0.06)",
-                }}>
+                <span key={i}
+                  style={{
+                    fontSize: 13, fontWeight: 500, color: "#1e3054",
+                    background: "#f4f7fc", border: "1px solid #d0ddf0",
+                    padding: "8px 18px", letterSpacing: "0.03em",
+                    boxShadow: "0 1px 4px rgba(30,48,84,0.06)",
+                    transition: "all 0.22s",
+                    cursor: "default",
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = "#1e3054";
+                    e.currentTarget.style.color = "#fff";
+                    e.currentTarget.style.borderColor = "#1e3054";
+                    e.currentTarget.style.boxShadow = "0 4px 14px rgba(30,48,84,0.18)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = "#f4f7fc";
+                    e.currentTarget.style.color = "#1e3054";
+                    e.currentTarget.style.borderColor = "#d0ddf0";
+                    e.currentTarget.style.boxShadow = "0 1px 4px rgba(30,48,84,0.06)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}>
                   {ind}
                 </span>
               ))}
             </div>
 
-            {/* Supporting stat */}
+            {/* Supporting copy */}
             <div style={{
-              display: "flex", alignItems: "center", gap: 20,
-              paddingTop: 28, borderTop: "1px solid #e6edf8",
+              paddingTop: 32, paddingBottom: 32,
+              borderTop: "1px solid #e6edf8", borderBottom: "1px solid #e6edf8",
+              marginBottom: 32,
+              display: "grid",
+              gridTemplateColumns: desktop ? "1fr 1fr" : "1fr",
+              gap: desktop ? 60 : 28,
+              alignItems: "flex-start",
             }}>
-              <div className="disp" style={{
-                fontSize: mobile ? 48 : 64, color: "#1e3054",
-                letterSpacing: "-0.03em", lineHeight: 1, flexShrink: 0,
-              }}>
-                15+
+              <div>
+                <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "#7a8fa8", marginBottom: 12 }}>
+                  Scope of Support
+                </div>
+                <p style={{ fontSize: mobile ? 15 : 16, lineHeight: 1.8, color: "#3a4e68" }}>
+                  Supporting executives, founders, creative leaders, and operational teams in fast-paced, high-growth, and global environments. Bringing structure, execution, and trusted partnership across diverse industries and business stages.
+                </p>
               </div>
               <div>
-                <div style={{ fontSize: mobile ? 16 : 19, fontWeight: 600, color: "#1e3054", lineHeight: 1.3, marginBottom: 4 }}>
-                  Years Supporting Executives and Leadership Teams
+                <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "#7a8fa8", marginBottom: 12 }}>
+                  Experience Includes
                 </div>
-                <div style={{ fontSize: 14, color: "#5a6f87", lineHeight: 1.6 }}>
-                  Media, beauty, SaaS, AI, Web3, finance, security, insurance, fashion, events, and operations
-                </div>
+                <p style={{ fontSize: mobile ? 14 : 15, lineHeight: 1.85, color: "#4e607a" }}>
+                  Estée Lauder Companies, MAC Cosmetics, Jo Malone London, La Mer, YSL Beauté (L'Oréal), Paramount, BET, VH1, Medidata AI, and International Blockchain Consulting Group.
+                </p>
               </div>
             </div>
           </Reveal>
 
-          {/* Bottom credential + company bar */}
+          {/* Credential bar */}
           <Reveal delay={80}>
             <div style={{
-              marginTop: 44, background: "#1e3054",
-              padding: mobile ? "20px 20px" : "22px 32px",
+              background: "#1e3054",
+              padding: mobile ? "18px 20px" : "20px 36px",
               display: "flex", flexWrap: "wrap", alignItems: "center",
-              gap: "10px 0", justifyContent: "center",
+              justifyContent: "center", gap: "8px 0",
               boxShadow: "0 4px 20px rgba(30,48,84,0.2)",
             }}>
               {[
-                { text: "PMP Certified", divider: true },
-                { text: "MPA", divider: true },
-                { text: "Georgia Notary", divider: true },
-                { text: "Paramount", divider: true },
-                { text: "Medidata", divider: true },
-                { text: "Estée Lauder", divider: true },
-                { text: "IBC Group", divider: false },
-              ].map((item, i) => (
+                "PMP Certified",
+                "Master of Public Administration (MPA)",
+                "Georgia Notary Public",
+                "15+ Years Supporting Leaders",
+              ].map((item, i, arr) => (
                 <span key={i} style={{ display: "inline-flex", alignItems: "center" }}>
                   <span style={{
-                    fontSize: 13, color: "rgba(255,255,255,0.78)",
-                    letterSpacing: "0.05em", padding: "0 20px",
-                    borderRight: item.divider ? "1px solid rgba(255,255,255,0.18)" : "none",
-                    lineHeight: 1,
+                    fontSize: mobile ? 12 : 13, color: "rgba(255,255,255,0.82)",
+                    letterSpacing: "0.04em", padding: "0 20px",
+                    borderRight: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.2)" : "none",
+                    lineHeight: 1, fontWeight: 400,
                   }}>
-                    {item.text}
+                    {item}
                   </span>
                 </span>
               ))}
