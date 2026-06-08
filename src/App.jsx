@@ -49,7 +49,11 @@ const SERVICES = [
      items: ["Custom branded design","NFC and QR-ready","Contact sharing built in","One-day turnaround"] },
 ];
 
-const COMPANIES = ["IBC Group","Medidata","BET Networks","Paramount","The Estée Lauder Companies"];
+const COMPANIES = [
+  "Estée Lauder Companies","MAC Cosmetics","Jo Malone London",
+  "La Mer","YSL Beauté (L'Oréal)","Paramount","BET","VH1",
+  "Medidata AI","International Blockchain Consulting Group"
+];
 
 const UNLOCKS = [
   "Fewer decisions landing back on your plate",
@@ -222,7 +226,8 @@ export default function App() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; font-size: 16px; }
+        html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
+        img { max-width: 100%; height: auto; }
         body { font-family: 'DM Sans', sans-serif; background: #f0f2f6; color: #1a2744; -webkit-font-smoothing: antialiased; }
         .disp { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; }
         ::selection { background: rgba(74,106,154,0.18); }
@@ -367,12 +372,13 @@ export default function App() {
         }
         .faq-item:first-child { border-top: 1px solid #dce4f0; }
         .faq-item:hover { background: rgba(74,106,154,0.04); }
+        .faq-item:focus-visible { outline: 2px solid #4a6a9a; outline-offset: -2px; }
 
         /* FORM */
         .form-input {
           width: 100%; border: 1.5px solid #dce4f0; background: #fff;
           padding: 12px 16px; font-family: 'DM Sans', sans-serif;
-          font-size: 15px; color: #1a2744; outline: none;
+          font-size: 16px; color: #1a2744; outline: none;
           transition: border-color 0.2s, box-shadow 0.2s;
         }
         .form-input:focus {
@@ -507,26 +513,21 @@ export default function App() {
         minHeight: "100svh", position: "relative", overflow: "hidden",
         display: "flex", alignItems: "center", padding: `0 ${gutter}`, paddingTop: 68,
       }}>
-        <div style={{ position: "absolute", inset: 0, zIndex: 0, background: "#141e36" }}>
-          {/* Portrait sits right — visible from head to waist, not cropped tight */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+          {/* Full-bleed portrait — faded uniformly */}
           <img src={IMG.hero} alt="" role="presentation"
             style={{
-              position: "absolute",
-              right: 0, top: 0,
-              width: desktop ? "54%" : tablet ? "70%" : "100%",
-              height: "100%",
+              width: "100%", height: "100%",
               objectFit: "cover",
               objectPosition: "center 10%",
               display: "block",
-              filter: "brightness(0.80) saturate(0.68)",
+              filter: "brightness(0.55) saturate(0.6)",
             }} />
-          {/* Left-to-right gradient keeps text readable, fades into portrait */}
+          {/* Uniform dark overlay + stronger fade on left for text legibility */}
           <div style={{ position: "absolute", inset: 0,
             background: desktop
-              ? "linear-gradient(to right, rgba(20,30,54,1) 0%, rgba(20,30,54,0.97) 25%, rgba(20,30,54,0.72) 45%, rgba(20,30,54,0.18) 68%, rgba(20,30,54,0) 100%)"
-              : tablet
-              ? "linear-gradient(to right, rgba(20,30,54,0.97) 0%, rgba(20,30,54,0.75) 38%, rgba(20,30,54,0.25) 65%, rgba(20,30,54,0) 100%)"
-              : "rgba(20,30,54,0.75)"
+              ? "linear-gradient(to right, rgba(20,28,50,0.82) 0%, rgba(20,28,50,0.68) 38%, rgba(20,28,50,0.38) 65%, rgba(20,28,50,0.15) 100%)"
+              : "rgba(20,28,50,0.72)"
           }} />
         </div>
 
@@ -534,7 +535,7 @@ export default function App() {
           position: "relative", zIndex: 1,
           width: "100%", margin: "0 auto",
           padding: mobile ? "80px 0" : "100px 0",
-          maxWidth: desktop ? 680 : tablet ? 560 : "100%",
+          maxWidth: desktop ? 680 : tablet ? 560 : "100%", overflowX: "hidden",
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 28 }}>
             <div style={{ width: 28, height: 1.5, background: "rgba(255,255,255,0.6)" }} />
@@ -597,14 +598,15 @@ export default function App() {
           ABOUT / APPROACH
       ══════════════════════ */}
       <section id="about" style={{ background: "#1e3054", padding: `${pad} ${gutter}`, position: "relative", overflow: "hidden" }}>
-        {/* Subtle office image bg on left */}
-        {desktop && (
-          <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "38%", zIndex: 0, overflow: "hidden" }}>
-            <img src={IMG.office} alt="" role="presentation"
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", filter: "brightness(0.45) saturate(0.6)", display: "block" }} />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(30,48,84,0.4) 0%, rgba(30,48,84,0.9) 100%)" }} />
-          </div>
-        )}
+        {/* Full-bleed office image — bottom portion, since top was used in hero */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+          <img src={IMG.office} alt="" role="presentation"
+            style={{ width: "100%", height: "100%", objectFit: "cover",
+              objectPosition: "center bottom",
+              filter: "brightness(0.38) saturate(0.55)", display: "block" }} />
+          <div style={{ position: "absolute", inset: 0,
+            background: "linear-gradient(to bottom, rgba(22,30,52,0.55) 0%, rgba(22,30,52,0.35) 50%, rgba(22,30,52,0.65) 100%)" }} />
+        </div>
         <div style={{ position: "relative", zIndex: 1, maxWidth: mw, margin: "0 auto" }}>
           {/* Heading row — full width */}
           <Reveal>
@@ -660,7 +662,7 @@ export default function App() {
             </div>
           </Reveal>
           <Reveal delay={80}>
-            <div style={{ display: "grid", gridTemplateColumns: desktop ? "1fr 1fr" : "1fr", gap: 32, alignItems: "stretch", maxWidth: 900, margin: "0 auto" }}>
+            <div style={{ display: "grid", gridTemplateColumns: desktop ? "1fr 1fr" : "1fr", gap: mobile ? 24 : 32, alignItems: "stretch", maxWidth: 900, margin: "0 auto" }}>
               {/* Sliders */}
               <div style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.14)", padding: "40px 36px", boxShadow: "0 4px 20px rgba(0,0,0,0.18)", display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 32 }}>
                 {/* Hours slider */}
@@ -963,7 +965,7 @@ export default function App() {
               Capacity-based partnerships. Limited client slots.
             </p>
             <div style={{ textAlign: "center" }}>
-              <button className="btn-primary" onClick={() => go("#contact")}>Book Your Plan Today</button>
+              <button className="btn-primary" onClick={() => go("#contact")} style={{ width: mobile ? "100%" : "auto" }}>Book Your Plan Today</button>
             </div>
           </Reveal>
         </div>
@@ -1140,7 +1142,7 @@ export default function App() {
           </div>
           <Reveal delay={180}>
             <div style={{ textAlign: "center" }}>
-              <button className="btn-primary" onClick={() => go("#contact")}>Request a Sprint Conversation</button>
+              <button className="btn-primary" onClick={() => go("#contact")} style={{ width: mobile ? "100%" : "auto" }}>Request a Sprint Conversation</button>
             </div>
           </Reveal>
         </div>
@@ -1257,12 +1259,48 @@ export default function App() {
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(3, 1fr)", gap: 16 }}>
             {[
-              { org: "IBC Group", type: "CRM Operations", title: "40,000+ Record Migration", desc: "Full CRM audit, deduplication of 21,000+ records, and clean data architecture for a high-growth blockchain consultancy managing 300+ investor relationships.", tags: ["CRM","Data","Operations"] },
-              { org: "The Estée Lauder Companies", type: "Event Operations", title: "45+ NYFW Productions", desc: "End-to-end operational support for New York Fashion Week productions including vendor coordination, talent logistics, and stakeholder communications.", tags: ["Events","Logistics","Comms"] },
-              { org: "BET Networks", type: "Executive Support", title: "Multi-Team Coordination", desc: "Operational and executive support across content, marketing, and talent divisions. Meeting architecture, priority filtering, and cross-functional follow-through.", tags: ["EA","Comms","Prioritization"] },
-              { org: "Medidata", type: "Systems Build", title: "Enterprise Ops Infrastructure", desc: "Supported executive and operational infrastructure at one of healthcare's leading SaaS platforms. Calendar architecture, briefing prep, and stakeholder management.", tags: ["SaaS","EA","Systems"] },
-              { org: "Paramount", type: "Global Operations", title: "25+ Global Events Coordinated", desc: "Operational oversight for international executive events and productions, including cross-timezone coordination and vendor management.", tags: ["Global","Events","EA"] },
-              { org: "Aptly Intelligent", type: "AI Integration", title: "AI-Native Workflow Build", desc: "Designed and deployed AI-assisted inbox triage, automated meeting summaries, SOP generation, and custom workflow systems using Claude, ChatGPT, and n8n.", tags: ["AI","Automation","Systems"] },
+              {
+                org: "IBC Group", type: "CRM Operations + Partnerships",
+                title: "HubSpot Migration & Investor Operations Build",
+                desc: "Led process improvements during the migration from spreadsheets to HubSpot, partnering with internal teams and HubSpot engineers to clean 40,000+ records, resolve duplicate data, build dashboards, and create SOPs supporting Web3 and crypto partnership development.",
+                tags: ["CRM","HubSpot","Web3","Dashboards","SOPs"]
+              },
+              {
+                org: "MAC Cosmetics", type: "Backstage Operations",
+                title: "45+ NYFW Backstage Productions",
+                desc: "Managed backstage operations for MAC's Global Artists during New York Fashion Week, coordinating testing schedules, artist assignments, chair setup, model timing, and real-time production needs from preparation through show execution.",
+                tags: ["NYFW","Backstage Ops","Artist Coordination","Production Support"]
+              },
+              {
+                org: "BET Networks", type: "Executive & Creative Operations",
+                title: "50+ Productions & Campaigns Supported",
+                desc: "Served as a central coordination partner across creative, marketing, and production teams, supporting executive priorities, project workflows, asset delivery, and high-visibility campaigns in fast-paced environments.",
+                tags: ["Executive Support","Creative Ops","Production","Coordination"]
+              },
+              {
+                org: "Medidata AI", type: "Enterprise Operations Infrastructure",
+                title: "15+ Cross-Functional Initiatives",
+                desc: "Supported enterprise-wide initiatives spanning onboarding, DEIB, career development, executive transitions, and operational improvements while partnering across product, compliance, HR, and leadership teams.",
+                tags: ["Operations","Stakeholder Management","Process Improvement","Programs"]
+              },
+              {
+                org: "The Estée Lauder Companies", type: "Global Brand Operations",
+                title: "25+ Global Brand Initiatives",
+                desc: "Coordinated operational execution across luxury beauty brands, partnering with global teams to support launches, events, stakeholder communications, timelines, and cross-functional delivery.",
+                tags: ["Global Operations","Brand Launches","Cross-Functional","Project Coordination"]
+              },
+              {
+                org: "Aptly Intelligent & Co.", type: "Modern Executive Operations",
+                title: "AI-Powered Systems & Support",
+                desc: "Leveraging AI-powered tools and modern workflows to streamline executive support, meeting management, research, documentation, and operational processes while enhancing efficiency and execution.",
+                tags: ["AI Tools","Executive Support","Workflow Systems","Operations"]
+              },
+              {
+                org: "Executive Logistics & Operations", type: "Complex Scheduling & Travel",
+                title: "Multi-Timezone Executive Support",
+                desc: "Supported senior leaders through high-volume calendar management, international travel coordination, executive communications, meeting preparation, stakeholder engagement, and shifting priorities across multiple time zones.",
+                tags: ["Executive Support","Travel","Calendars","Stakeholders"]
+              },
             ].map((p, i) => (
               <Reveal key={i} delay={i * 50}>
                 <div style={{ background: "#fff", border: "1px solid #dce4f0", padding: "28px 26px", height: "100%",
@@ -1275,7 +1313,7 @@ export default function App() {
                     <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#4a6a9a", background: "rgba(74,106,154,0.1)", padding: "3px 8px", flexShrink: 0, marginLeft: 8 }}>{p.type}</div>
                   </div>
                   <h3 style={{ fontSize: 17, fontWeight: 600, color: "#1e3054", marginBottom: 12, lineHeight: 1.3 }}>{p.title}</h3>
-                  <p style={{ fontSize: 14, lineHeight: 1.72, color: "#4e607a", marginBottom: 18 }}>{p.desc}</p>
+                  <p style={{ fontSize: 13.5, lineHeight: 1.7, color: "#4e607a", marginBottom: 18 }}>{p.desc}</p>
                   <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                     {p.tags.map(t => (
                       <span key={t} style={{ fontSize: 11, fontWeight: 500, color: "#4a6a9a", background: "#eef3fb", padding: "3px 10px", letterSpacing: "0.06em" }}>{t}</span>
@@ -1301,8 +1339,8 @@ export default function App() {
           </Reveal>
           <Reveal delay={60}>
             {FAQS.map((f, i) => (
-              <div key={i} className="faq-item" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 16px" }}>
+              <div key={i} className="faq-item" tabIndex={0} role="button" onClick={() => setOpenFaq(openFaq === i ? null : i)} onKeyDown={e => e.key === "Enter" && setOpenFaq(openFaq === i ? null : i)}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "18px 16px", minHeight: 56 }}>
                   <span style={{ fontSize: 15.5, fontWeight: 500, color: "#1e3054", paddingRight: 16 }}>{f.q}</span>
                   <span style={{ fontSize: 20, color: "#4a6a9a", flexShrink: 0, fontWeight: 300, transform: openFaq === i ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.25s" }}>+</span>
                 </div>
