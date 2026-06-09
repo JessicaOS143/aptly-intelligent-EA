@@ -1475,25 +1475,24 @@ export default function App() {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
                           body: JSON.stringify({
-                            service_id:  "YOUR_SERVICE_ID",
-                            template_id: "YOUR_TEMPLATE_ID",
-                            user_id:     "YOUR_PUBLIC_KEY",
+                            service_id:  "service_7kcjwje",
+                            template_id: "template_kjtf6y8",
+                            user_id:     "g9WvBYx_reVuFI72j",
                             template_params: {
-                              to_email:  "jessica@aptlyintelligent.com",
-                              from_name: form.name,
+                              to_email:   "jessica@aptlyintelligent.com",
+                              from_name:  form.name,
                               from_email: form.email,
-                              role:      form.role,
-                              company:   form.company || "Not provided",
-                              need:      form.need,
-                              friction:  form.friction,
-                              outcome:   form.outcome,
-                              timeline:  form.timeline,
-                              subject:   `New Discovery Form - ${form.name} (${form.role})`,
+                              role:       form.role,
+                              company:    form.company || "Not provided",
+                              need:       form.need,
+                              friction:   form.friction,
+                              outcome:    form.outcome,
+                              timeline:   form.timeline,
+                              subject:    `New Discovery Form - ${form.name} (${form.role})`,
                             }
                           })
                         });
                       } catch (e) {
-                        // form still submits even if email fails
                         console.warn("Email notification failed:", e);
                       }
                       setFormSent(true);
