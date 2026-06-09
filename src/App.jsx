@@ -513,21 +513,25 @@ export default function App() {
         minHeight: "100svh", position: "relative", overflow: "hidden",
         display: "flex", alignItems: "center", padding: `0 ${gutter}`, paddingTop: 68,
       }}>
-        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-          {/* Full-bleed portrait — faded uniformly */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 0, background: "#141c30", overflow: "hidden" }}>
+          {/* Portrait at natural aspect ratio — full person visible, no zoom */}
           <img src={IMG.hero} alt="" role="presentation"
             style={{
-              width: "100%", height: "100%",
-              objectFit: "cover",
-              objectPosition: "center 10%",
+              position: "absolute",
+              right: 0, top: 0,
+              height: "100%",
+              width: "auto",
+              maxWidth: "none",
               display: "block",
-              filter: "brightness(0.55) saturate(0.6)",
+              filter: "brightness(0.72) saturate(0.62)",
             }} />
-          {/* Uniform dark overlay + stronger fade on left for text legibility */}
+          {/* Left-to-right overlay — text reads clearly, portrait shows naturally on right */}
           <div style={{ position: "absolute", inset: 0,
             background: desktop
-              ? "linear-gradient(to right, rgba(20,28,50,0.82) 0%, rgba(20,28,50,0.68) 38%, rgba(20,28,50,0.38) 65%, rgba(20,28,50,0.15) 100%)"
-              : "rgba(20,28,50,0.72)"
+              ? "linear-gradient(to right, rgba(20,28,50,0.97) 0%, rgba(20,28,50,0.92) 30%, rgba(20,28,50,0.65) 52%, rgba(20,28,50,0.18) 75%, rgba(20,28,50,0.05) 100%)"
+              : tablet
+              ? "linear-gradient(to right, rgba(20,28,50,0.96) 0%, rgba(20,28,50,0.7) 45%, rgba(20,28,50,0.2) 75%, rgba(20,28,50,0) 100%)"
+              : "rgba(20,28,50,0.78)"
           }} />
         </div>
 
