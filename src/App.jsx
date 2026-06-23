@@ -70,14 +70,14 @@ const BEFORE_AFTER = {
 };
 
 const PLANS = [
-  { label: "Foundation", hours: "Up to 15 Hours / Month", price: "$1,500/month",
+  { label: "Foundation", hours: "Up to 20 Hours / Month", price: "$1,500+/month",
     best: "Leaders who need dependable executive support and operational organization.",
     features: ["Calendar and meeting management","Inbox organization and follow-up","Travel coordination","Expense tracking and reporting","Document preparation","Weekly executive touchpoint"] },
-  { label: "Growth", hours: "Up to 30 Hours / Month", price: "$2,700/month",
+  { label: "Growth", hours: "Up to 35 Hours / Month", price: "$2,700+/month",
     best: "Founders and operators managing growth, competing priorities, and increasing complexity.",
     features: ["Everything in Foundation","Project coordination","Vendor and stakeholder management","Meeting agendas and action tracking","Research and reporting","Process documentation"],
     popular: true },
-  { label: "Executive", hours: "Up to 50 Hours / Month", price: "$4,500/month",
+  { label: "Executive", hours: "Up to 50 Hours / Month", price: "$4,500+/month",
     best: "Senior leaders seeking a trusted operational partner to drive execution and maintain momentum.",
     features: ["Everything in Growth","Strategic project support","Executive communications","Cross-functional coordination","Event and offsite planning","Priority management and escalation support"] },
   { label: "Executive Access", hours: "Dedicated Capacity", price: "Custom Engagement",
