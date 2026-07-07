@@ -1443,10 +1443,10 @@ export default function App() {
       ══════════════════════ */}
       <section id="contact" style={{ background: "#1e3054", padding: `${pad} ${gutter}` }}>
         <div style={{ maxWidth: mw, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: desktop ? "360px 1fr" : "1fr", gap: desktop ? 80 : 48, alignItems: "start" }}>
+          <div style={{ display: "grid", gridTemplateColumns: formSent ? "1fr" : desktop ? "360px 1fr" : "1fr", gap: desktop ? 80 : 48, alignItems: "start" }}>
 
-            {/* Left, Contact info */}
-            <Reveal>
+            {/* Left, Contact info — hidden after submit */}
+            {!formSent && <Reveal>
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 20 }}>Executive Discovery Form™</div>
               <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,46px)", color: "#fff", marginBottom: 20 }}>
                 The First Step Toward Operational Clarity
@@ -1467,23 +1467,49 @@ export default function App() {
               </div>
               <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 8 }}>
                 <span style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ color: "rgba(255,255,255,0.4)" }}>+</span> Response time: Within 48 hours
+                  <span style={{ color: "rgba(255,255,255,0.4)" }}>+</span> Response time: Within 24 hours
                 </span>
                 <span style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", display: "flex", alignItems: "center", gap: 8 }}>
                   <span style={{ color: "rgba(255,255,255,0.4)" }}>+</span> Partnerships are selective and capacity-limited
                 </span>
               </div>
-            </Reveal>
+            </Reveal>}
 
             {/* Right, Form */}
             <Reveal delay={80}>
               {formSent ? (
-                <div style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", padding: "48px 40px", textAlign: "center" }}>
-                  <div style={{ fontSize: 40, marginBottom: 20 }}>+</div>
-                  <h3 className="disp" style={{ fontSize: 28, color: "#fff", marginBottom: 14 }}>Form Submitted</h3>
-                  <p style={{ fontSize: 15, color: "rgba(255,255,255,0.65)", lineHeight: 1.75 }}>
-                    Thank you. I'll review your submission and follow up within 48 hours with next steps.
+                <div style={{ maxWidth: 640, margin: "0 auto", textAlign: "center", padding: mobile ? "48px 24px" : "72px 48px" }}>
+                  {/* Checkmark circle */}
+                  <div style={{
+                    width: 72, height: 72, borderRadius: "50%",
+                    background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.25)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    margin: "0 auto 28px",
+                  }}>
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                      <path d="M5 14L11 20L23 8" stroke="rgba(255,255,255,0.9)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 16 }}>
+                    Executive Discovery Form™
+                  </div>
+                  <h3 className="disp" style={{ fontSize: mobile ? 32 : 42, color: "#fff", marginBottom: 20, lineHeight: 1.1 }}>
+                    Thank You
+                  </h3>
+                  <p style={{ fontSize: 17, color: "rgba(255,255,255,0.78)", lineHeight: 1.8, marginBottom: 12, maxWidth: 480, margin: "0 auto 12px" }}>
+                    Your Executive Discovery Form has been received.
                   </p>
+                  <p style={{ fontSize: 15, color: "rgba(255,255,255,0.52)", lineHeight: 1.75, maxWidth: 440, margin: "0 auto 36px" }}>
+                    I will review your submission and follow up within 24 hours with next steps.
+                  </p>
+                  <div style={{ borderTop: "1px solid rgba(255,255,255,0.12)", paddingTop: 28, display: "flex", flexDirection: "column", gap: 8 }}>
+                    {["Submissions are reviewed personally","Capacity is selective and limited","You will hear back within 24 hours"].map((item, i) => (
+                      <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10 }}>
+                        <div style={{ width: 4, height: 4, borderRadius: "50%", background: "rgba(255,255,255,0.35)", flexShrink: 0 }} />
+                        <span style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", letterSpacing: "0.02em" }}>{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ) : (
                 <div style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", padding: mobile ? "28px 20px" : "36px 36px" }}>
@@ -1557,6 +1583,7 @@ export default function App() {
                          3. Create a template with variables below
                          4. Replace SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY below */
                       try {
+                        // Email 1: Notify Jessica
                         await fetch("https://api.emailjs.com/api/v1.0/email/send", {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
@@ -1578,8 +1605,42 @@ export default function App() {
                             }
                           })
                         });
+                        // Email 2: Auto-reply to submitter
+                        await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            service_id:  "service_7kcjwje",
+                            template_id: "template_kjtf6y8",
+                            user_id:     "g9WvBYx_reVuFI72j",
+                            template_params: {
+                              to_email:   form.email,
+                              from_name:  "Jessica Ocasio-Salters",
+                              from_email: "jessica@aptlyintelligent.com",
+                              role:       form.role,
+                              company:    form.company || "",
+                              need:       "",
+                              friction:   "",
+                              outcome:    "",
+                              timeline:   "",
+                              subject:    `Your Executive Discovery Form — Aptly Intelligent & Co.`,
+                              message:    `Hi ${form.name},
+
+Thank you for submitting your Executive Discovery Form.
+
+I have received your submission and will review it personally. You can expect to hear from me within 24 hours with next steps.
+
+I look forward to learning more about your work.
+
+Warm regards,
+Jessica Ocasio-Salters
+Aptly Intelligent & Co.
+jessica@aptlyintelligent.com`,
+                            }
+                          })
+                        });
                       } catch (e) {
-                        console.warn("Email notification failed:", e);
+                        console.warn("Email send failed:", e);
                       }
                       setFormSent(true);
                     }
