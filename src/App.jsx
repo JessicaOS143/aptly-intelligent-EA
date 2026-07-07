@@ -1583,7 +1583,13 @@ export default function App() {
                          3. Create a template with variables below
                          4. Replace SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY below */
                       try {
-                        // Email 1: Notify Jessica
+                        // Build intake message for Jessica
+                        const intakeMsg = `New Executive Discovery Form Submission\n\nName: ${form.name}\nEmail: ${form.email}\nRole / Title: ${form.role}\nCompany: ${form.company || "Not provided"}\n\nPrimary Need: ${form.need}\n\nWhat's creating the most friction right now:\n${form.friction}\n\nWhat successful support looks like in 90 days:\n${form.outcome}\n\nPreferred start timeline: ${form.timeline}`;
+
+                        // Build auto-reply message for submitter
+                        const replyMsg = `<p>Hi ${form.name},</p><p>Thank you for submitting your Executive Discovery Form.</p><p>I have received your submission and will review it personally. You can expect to hear from me within 24 hours with next steps.</p><p>I look forward to learning more about your work.</p><p>Warm regards,<br>Jessica Ocasio-Salters<br>Aptly Intelligent &amp; Co.<br>jessica@aptlyintelligent.com</p>`;
+
+                        // Email 1: Intake notification to Jessica
                         await fetch("https://api.emailjs.com/api/v1.0/email/send", {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
@@ -1595,17 +1601,13 @@ export default function App() {
                               to_email:   "jessica@aptlyintelligent.com",
                               from_name:  form.name,
                               from_email: form.email,
-                              role:       form.role,
-                              company:    form.company || "Not provided",
-                              need:       form.need,
-                              friction:   form.friction,
-                              outcome:    form.outcome,
-                              timeline:   form.timeline,
-                              subject:    `New Discovery Form - ${form.name} (${form.role})`,
+                              subject:    `New Discovery Form — ${form.name} (${form.role})`,
+                              message:    intakeMsg,
                             }
                           })
                         });
-                        // Email 2: Auto-reply to submitter
+
+                        // Email 2: Auto-reply confirmation to submitter
                         await fetch("https://api.emailjs.com/api/v1.0/email/send", {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
@@ -1617,25 +1619,8 @@ export default function App() {
                               to_email:   form.email,
                               from_name:  "Jessica Ocasio-Salters",
                               from_email: "jessica@aptlyintelligent.com",
-                              role:       form.role,
-                              company:    form.company || "",
-                              need:       "",
-                              friction:   "",
-                              outcome:    "",
-                              timeline:   "",
                               subject:    `Your Executive Discovery Form — Aptly Intelligent & Co.`,
-                              message:    `Hi ${form.name},
-
-Thank you for submitting your Executive Discovery Form.
-
-I have received your submission and will review it personally. You can expect to hear from me within 24 hours with next steps.
-
-I look forward to learning more about your work.
-
-Warm regards,
-Jessica Ocasio-Salters
-Aptly Intelligent & Co.
-jessica@aptlyintelligent.com`,
+                              message:    replyMsg,
                             }
                           })
                         });
