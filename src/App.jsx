@@ -943,6 +943,7 @@ export default function App() {
         </div>
       </section>
 
+      {/* ══════════════════════
           ABOUT / APPROACH
       ══════════════════════ */}
       <section id="about" style={{ background: "#1e3054", padding: `${pad} ${gutter}`, position: "relative", overflow: "hidden" }}>
@@ -1069,6 +1070,8 @@ export default function App() {
       </section>
 
       {/* ══════════════════════
+          SERVICES
+      ══════════════════════ */}
       <section id="services" style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
         <div style={{ maxWidth: mw, margin: "0 auto" }}>
           <Reveal>
@@ -1348,6 +1351,7 @@ export default function App() {
       {/* ══════════════════════
           SPRINTS
       ══════════════════════ */}
+      {/* ══════════════════════
           HOW IT WORKS
       ══════════════════════ */}
       <section style={{ background: "#f0f2f6", padding: `${pad} ${gutter}` }}>
