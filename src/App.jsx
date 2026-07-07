@@ -71,24 +71,24 @@ const BEFORE_AFTER = {
 
 const PLANS = [
   { label: "Foundation", hours: "Up to 20 Hours / Month", price: "$1,500+/month",
-    best: "Leaders who need dependable executive support and operational organization.",
+    best: "For founders and professionals who need relief from administrative overload and day-to-day coordination.",
     features: ["Calendar and meeting management","Inbox organization and follow-up","Travel coordination","Expense tracking and reporting","Document preparation","Weekly executive touchpoint"] },
   { label: "Growth", hours: "Up to 35 Hours / Month", price: "$2,700+/month",
-    best: "Founders and operators managing growth, competing priorities, and increasing complexity.",
+    best: "For businesses managing multiple projects, vendors, stakeholders, and operational priorities.",
     features: ["Everything in Foundation","Project coordination","Vendor and stakeholder management","Meeting agendas and action tracking","Research and reporting","Process documentation"],
     popular: true },
   { label: "Executive", hours: "Up to 50 Hours / Month", price: "$4,500+/month",
-    best: "Senior leaders seeking a trusted operational partner to drive execution and maintain momentum.",
+    best: "For leaders who need a trusted strategic operations partner embedded within their business.",
     features: ["Everything in Growth","Strategic project support","Executive communications","Cross-functional coordination","Event and offsite planning","Priority management and escalation support"] },
   { label: "Executive Access", hours: "Dedicated Capacity", price: "Custom Engagement",
-    best: "Executives with complex schedules, multiple priorities, and a need for high-touch operational support.",
+    best: "For organizations requiring specialized executive operations, project leadership, systems implementation, or high-touch support.",
     features: ["Dedicated monthly capacity","Expanded availability coverage","Multi-project coordination","Executive and personal support integration","High-priority response support","Custom engagement structure"],
     limited: true },
 ];
 
-const INDUSTRIES = [
-  "Beauty & Luxury","Investment","Insurance","Technology",
-  "Media","Security","Events","SaaS","Web3","Global Operations"
+const EXPERTISE = [
+  "Executive Operations","Project Leadership","Global Operations","Executive Support",
+  "Beauty & Luxury","Media","Healthcare","Finance","Technology","Web3"
 ];
 
 const SPRINTS = [
@@ -99,9 +99,9 @@ const SPRINTS = [
 ];
 
 const TESTIMONIALS = [
-  { quote: "Working with Aptly Intelligent has been transformative for my business. The organization skills and attention to detail are unmatched. I can finally focus on growing my business, knowing all the operations are in safe hands.", name: "Sarah M.", title: "Founder and CEO"         },
-  { quote: "I struggled to keep up with my priorities until Jessica stepped in. Clear systems, managed follow-through, and seamless execution. My productivity and peace of mind have increased dramatically.",                               name: "Michael R.", title: "Managing Director"    },
-  { quote: "As a busy professional, I was overwhelmed trying to balance my career and personal life. Aptly Intelligent has been invaluable, helping with everything from meeting prep to travel planning. Highly recommend.",                name: "Jennifer T.", title: "VP of Operations"   },
+  { quote: "Working with Aptly Intelligent has been transformative for my business. The organization skills and attention to detail are unmatched. I can finally focus on growing my business, knowing all the operations are in safe hands.", name: "Sarah B.", title: "Founder", industry: "Marketing Agency" },
+  { quote: "I struggled to keep up with my priorities until Jessica stepped in. Clear systems, managed follow-through, and seamless execution. My productivity and peace of mind have increased dramatically.",                               name: "Michael C.", title: "Managing Partner", industry: "Law Firm" },
+  { quote: "As a busy professional, I was overwhelmed trying to balance my career and personal life. Aptly Intelligent has been invaluable, helping with everything from meeting prep to travel planning. Highly recommend.",                name: "Jennifer T.", title: "VP of Operations", industry: "Technology" },
 ];
 
 const PROCESS = [
@@ -116,10 +116,16 @@ const FIT_NO  = ["Want hourly or task-only support","Need constant direction","A
 
 const FAQS = [
   { q: "Are you hourly?",                                        a: "No. Support is structured around monthly partnerships or focused sprint engagements, not hourly tracking. This allows for proactive, judgment-based support rather than time-logged tasks." },
+  { q: "Why not hire a full-time executive assistant?",          a: "A full-time hire comes with salary, benefits, onboarding time, management overhead, and long-term commitment. Aptly Intelligent & Co. provides senior-level executive operations support at a fraction of that cost, with no overhead, no HR complexity, and the flexibility to scale as your needs change." },
+  { q: "What makes Aptly different from a virtual assistant?",   a: "A virtual assistant handles tasks. Aptly Intelligent & Co. provides executive operations partnership. That means strategic thinking, project leadership, systems design, and proactive support, not just task completion. The work is judgment-based, confidential, and aligned with your business priorities." },
+  { q: "What systems and platforms do you work in?",             a: "Notion, Google Workspace, Microsoft 365, Slack, Airtable, HubSpot, Asana, Monday.com, Zoom, and a range of AI tools including Claude, ChatGPT, and n8n. If you use something not listed, it is likely familiar or quickly learnable." },
+  { q: "Can you help build operational systems and workflows?",  a: "Yes. Designing and implementing operational systems is a core capability. This includes building SOPs, creating dashboards, structuring project management frameworks, and automating repetitive workflows using AI and no-code tools." },
+  { q: "Do you provide project management support?",             a: "Yes. Project management support spans planning, stakeholder coordination, timeline management, documentation, and cross-functional follow-through. PMP-certified and experienced across complex, multi-team initiatives." },
+  { q: "Can you work alongside my existing team?",               a: "Absolutely. Most engagements involve working alongside existing staff, contractors, and vendors. The focus is on filling gaps, improving coordination, and supporting team execution, not replacing existing team members." },
   { q: "Do you use AI?",                                         a: "Yes. AI tools are integrated to accelerate execution, reduce manual workflow, and increase output quality. All AI use is supervised, intentional, and in service of better results for you." },
   { q: "Do you offer Notary or Apostille services?",             a: "Yes. As a certified Georgia Notary, I provide document notarization and Apostille coordination for business contracts, real estate documents, power of attorney, corporate filings, and international documentation." },
   { q: "Can I start with a sprint instead of a partnership?",    a: "Absolutely. Focused sprints are a great way to address a specific initiative or transition with a defined scope and timeline." },
-  { q: "Do you work early mornings or outside standard hours?",  a: "Yes. Support can begin as early as 5am EST for leaders who do their best thinking before the day gets loud. I also work with clients across time zones and can align availability to accommodate schedules outside standard business hours. If you have a non-traditional schedule, we can build a structure that works for you." },
+  { q: "Do you work early mornings or outside standard hours?",  a: "Yes. Support can begin as early as 5am EST for leaders who do their best thinking before the day gets loud. I also work with clients across time zones and can align availability to accommodate schedules outside standard business hours." },
   { q: "Is there a minimum commitment?",                         a: "Monthly partnerships require a 3-month minimum commitment. Sprints are project-based with a defined scope and timeline." },
   { q: "Why do I need to complete a form before booking a call?",a: "The form ensures our conversation is focused and productive. It allows me to review your situation in advance and come prepared with relevant insights." },
   { q: "Are engagements capacity-limited?",                      a: "Yes. Partnerships are selective and capacity-limited to ensure every client receives full attention and quality support." },
@@ -212,7 +218,7 @@ export default function App() {
   };
 
   const gutter = mobile ? "20px" : tablet ? "40px" : "max(40px, 7vw)";
-  const pad    = mobile ? "72px" : tablet ? "88px" : "110px";
+  const pad    = mobile ? "52px" : tablet ? "64px" : "80px";
   const mw     = 1180;
 
   const monthlyCost = Math.round(calcHours * calcRate * 52 / 12);
@@ -549,34 +555,37 @@ export default function App() {
           </div>
 
           <h1 className="disp" style={{
-            fontSize: mobile ? "clamp(36px,11vw,50px)" : tablet ? "clamp(44px,7vw,62px)" : "clamp(50px,5.5vw,72px)",
-            marginBottom: 24, color: "#fff", lineHeight: 1.08,
+            fontSize: mobile ? "clamp(32px,10vw,46px)" : tablet ? "clamp(40px,6vw,56px)" : "clamp(44px,4.8vw,64px)",
+            marginBottom: 22, color: "#fff", lineHeight: 1.1,
           }}>
-            You build<br />
-            the company.<br />
-            <span style={{ color: "rgba(255,255,255,0.78)" }}>I'll run it with you.</span>
+            When everything<br />
+            depends on you,<br />
+            <span style={{ color: "rgba(255,255,255,0.75)" }}>growth slows.</span>
           </h1>
 
-          <p style={{ fontSize: mobile ? 16 : 18, lineHeight: 1.75, color: "rgba(255,255,255,0.82)", marginBottom: 14, maxWidth: 520 }}>
-            Strategic Executive Partnership for Founders and Senior Leaders.
-          </p>
-          <p style={{ fontSize: 15, lineHeight: 1.78, color: "rgba(255,255,255,0.62)", marginBottom: 12, maxWidth: 500 }}>
-            Execution, organization, and operational clarity, delivered per executive direction.
-          </p>
-          <p style={{ fontSize: 13, lineHeight: 1.72, color: "rgba(255,255,255,0.45)", marginBottom: 44, maxWidth: 460 }}>
-            Discreet. Intentionally scoped. Designed for leaders who want proactive support without managing their support.
+          <p style={{ fontSize: mobile ? 15 : 17, lineHeight: 1.78, color: "rgba(255,255,255,0.82)", marginBottom: 22, maxWidth: 520 }}>
+            Executive operations, project leadership, and strategic support for founders, attorneys, executives, investors, and growing businesses that need more capacity without adding a full-time hire.
           </p>
 
+          <div style={{ marginBottom: 32, display: "flex", flexDirection: "column", gap: 10 }}>
+            {["Recover 10 to 20 hours each week","Reduce operational friction","Keep projects moving","Create executive leverage"].map((item, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <div style={{ width: 5, height: 5, borderRadius: "50%", background: "rgba(255,255,255,0.65)", flexShrink: 0 }} />
+                <span style={{ fontSize: 14.5, color: "rgba(255,255,255,0.75)", lineHeight: 1.5 }}>{item}</span>
+              </div>
+            ))}
+          </div>
+
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <button className="btn-primary" onClick={() => window.open("https://calendly.com/jessicamarieocasio/aptly-intelligent-discovery-call", "_blank")} style={{ background: "rgba(255,255,255,0.95)", color: "#1e3054", width: mobile ? "100%" : "auto" }}>
-              Start with the Discovery Form
+            <button className="btn-primary" onClick={() => go("#contact")} style={{ background: "rgba(255,255,255,0.95)", color: "#1e3054", width: mobile ? "100%" : "auto" }}>
+              Start Your Executive Discovery Form
             </button>
             <button className="btn-ghost-white" onClick={() => window.open("https://www.linkedin.com/in/jessica-ocasio/", "_blank")} style={{ width: mobile ? "100%" : "auto" }}>
               Connect on LinkedIn
             </button>
           </div>
 
-          <div style={{ marginTop: 44, paddingTop: 28, borderTop: "1px solid rgba(255,255,255,0.15)", display: "flex", gap: 24, flexWrap: "wrap" }}>
+          <div style={{ marginTop: 36, paddingTop: 24, borderTop: "1px solid rgba(255,255,255,0.15)", display: "flex", gap: 24, flexWrap: "wrap" }}>
             {["PMP Certified","MPA","GA Notary Public","15+ Years"].map(t => (
               <span key={t} style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", display: "flex", alignItems: "center", gap: 7 }}>
                 <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 10 }}>+</span>{t}
@@ -586,19 +595,354 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── COMPANY STRIP ── */}
-      <section style={{ background: "#fff", borderTop: "1px solid #dce4f0", borderBottom: "1px solid #dce4f0", padding: `${mobile ? 28 : 36}px ${gutter}` }}>
+      {/* ── TRUST BANNER ── */}
+      <section style={{ background: "#1e3054", padding: `12px ${gutter}`, textAlign: "center" }}>
+        <p style={{ fontSize: mobile ? 12.5 : 13.5, color: "rgba(255,255,255,0.82)", letterSpacing: "0.04em", lineHeight: 1.6 }}>
+          Trusted by leaders across media, healthcare, beauty, technology, finance, and emerging industries for more than 15 years.
+        </p>
+      </section>
+
+      {/* ══════════════════════
+          TRUSTED BY LEADERS — Company Cards + Metrics
+      ══════════════════════ */}
+      <section id="meet-jessica" style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
         <div style={{ maxWidth: mw, margin: "0 auto" }}>
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(26,39,68,0.3)", textAlign: "center", marginBottom: 20 }}>
-            Operating experience across
-          </p>
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: mobile ? "14px 28px" : "10px 50px" }}>
-            {COMPANIES.map(c => <span key={c} className="wmark" style={{ fontSize: mobile ? 16 : 18 }}>{c}</span>)}
+          <Reveal>
+            {/* Eyebrow + headline */}
+            <div style={{ marginBottom: 16 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 18 }}>
+                Experience
+              </div>
+              <h2 className="disp" style={{
+                fontSize: mobile ? "clamp(30px,9vw,44px)" : "clamp(34px,4.2vw,58px)",
+                color: "#1e3054", marginBottom: 24, lineHeight: 1.08, maxWidth: 780,
+              }}>
+                Trusted by Leaders Across Industries<br />
+                <span style={{ color: "#4a6a9a" }}>for 15+ Years</span>
+              </h2>
+              <p style={{ fontSize: mobile ? 15 : 17, lineHeight: 1.82, color: "#4e607a", maxWidth: 720, marginBottom: 0 }}>
+                For more than 15 years, Jessica has supported executives, leadership teams, and fast-moving organizations across beauty, media, technology, finance, insurance, events, consulting, and emerging industries. Her work spans global brands, complex operations, strategic initiatives, and high-growth environments where execution matters.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Company cards */}
+          <Reveal delay={60}>
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(4, 1fr)",
+              gap: 16, marginTop: 36, marginBottom: 32,
+            }}>
+              {[
+                {
+                  org: "The Estée Lauder Companies",
+                  badge: "Beauty & Luxury",
+                  desc: "Supported global brands including MAC Cosmetics, La Mer, and Jo Malone across large-scale events, operational planning, executive support, and cross-functional coordination.",
+                },
+                {
+                  org: "Paramount",
+                  badge: "Media & Entertainment",
+                  desc: "Supported creative and executive leadership teams across BET, VH1, and Nickelodeon while managing priorities, communications, and high-visibility initiatives.",
+                },
+                {
+                  org: "Medidata AI",
+                  badge: "Healthcare Technology",
+                  desc: "Provided executive-level operational support within a global life sciences technology organization serving pharmaceutical and clinical research clients.",
+                },
+                {
+                  org: "IBC Group",
+                  badge: "Blockchain & Finance",
+                  desc: "Led operational improvements including CRM migration, process development, investor communications, and executive operations within a fast-paced blockchain consulting firm.",
+                },
+              ].map((co, i) => (
+                <div key={i} style={{
+                  background: "#f8fafc", border: "1px solid #dce4f0",
+                  padding: "28px 26px",
+                  boxShadow: "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)",
+                  transition: "transform 0.25s, box-shadow 0.25s",
+                  display: "flex", flexDirection: "column", gap: 0,
+                }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                    e.currentTarget.style.boxShadow = "0 10px 32px rgba(30,48,84,0.13), 0 2px 8px rgba(30,48,84,0.07), 0 0 0 1px rgba(74,106,154,0.18)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)";
+                  }}>
+                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 10 }}>{co.badge}</div>
+                  <div className="disp" style={{ fontSize: mobile ? 17 : 19, fontWeight: 600, color: "#1e3054", marginBottom: 14, lineHeight: 1.2 }}>{co.org}</div>
+                  <p style={{ fontSize: 13.5, lineHeight: 1.72, color: "#4e607a", flex: 1 }}>{co.desc}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Impact metrics — large stat display */}
+          <Reveal delay={90}>
+            <div style={{
+              borderTop: "1px solid #dce4f0",
+              borderBottom: "1px solid #dce4f0",
+              padding: mobile ? "28px 0" : "36px 0",
+              marginBottom: 32,
+            }}>
+              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 32, textAlign: "center" }}>
+                Impact Highlights
+              </div>
+              {/* Three big numeric stats */}
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: mobile ? "1fr 1fr 1fr" : "repeat(3, 1fr)",
+                gap: 0,
+                marginBottom: 32,
+              }}>
+                {[
+                  { stat: "15+",     sub: "Years",        label: "Supporting Executives" },
+                  { stat: "25+",     sub: "Global Events",label: "Across Luxury & Media Brands" },
+                  { stat: "40,000+", sub: "Records",      label: "Cleaned & Migrated" },
+                ].map((m, i) => (
+                  <div key={i} style={{
+                    padding: mobile ? "0 8px" : "0 40px",
+                    borderLeft: i > 0 ? "1px solid #dce4f0" : "none",
+                    textAlign: "center",
+                  }}>
+                    <div className="disp" style={{ fontSize: mobile ? "clamp(28px,8vw,46px)" : 52, color: "#1e3054", letterSpacing: "-0.02em", lineHeight: 1, marginBottom: 6 }}>{m.stat}</div>
+                    <div style={{ fontSize: mobile ? 11 : 13, fontWeight: 600, color: "#4a6a9a", marginBottom: 4, letterSpacing: "0.03em", textTransform: "uppercase" }}>{m.sub}</div>
+                    <div style={{ fontSize: mobile ? 11 : 12.5, color: "#7a8fa8", lineHeight: 1.4 }}>{m.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Three descriptor badges */}
+              <div style={{
+                borderTop: "1px solid #e8eef8",
+                paddingTop: 20,
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "10px",
+                justifyContent: "center",
+              }}>
+                {[
+                  "Fortune 500 & Startup Experience",
+                  "Cross-Functional Program Leadership",
+                  "Global Brand & Growth Company Experience",
+                ].map((item, i) => (
+                  <span key={i} style={{
+                    fontSize: 12.5, color: "#4a6a9a", fontWeight: 500,
+                    background: "rgba(74,106,154,0.07)", border: "1px solid rgba(74,106,154,0.18)",
+                    padding: "5px 14px", letterSpacing: "0.02em",
+                  }}>{item}</span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Expertise chips */}
+          <Reveal delay={110}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 10px", marginBottom: 16 }}>
+              {EXPERTISE.map((tag, i) => (
+                <span key={i}
+                  style={{
+                    fontSize: 13, fontWeight: 500, color: "#1e3054",
+                    background: "#f4f7fc", border: "1px solid #d0ddf0",
+                    padding: "8px 18px", letterSpacing: "0.03em",
+                    boxShadow: "0 1px 4px rgba(30,48,84,0.06)",
+                    transition: "all 0.22s", cursor: "default",
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = "#1e3054";
+                    e.currentTarget.style.color = "#fff";
+                    e.currentTarget.style.borderColor = "#1e3054";
+                    e.currentTarget.style.boxShadow = "0 4px 14px rgba(30,48,84,0.18)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = "#f4f7fc";
+                    e.currentTarget.style.color = "#1e3054";
+                    e.currentTarget.style.borderColor = "#d0ddf0";
+                    e.currentTarget.style.boxShadow = "0 1px 4px rgba(30,48,84,0.06)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Experience includes strip */}
+          <Reveal delay={120}>
+            <div style={{ marginBottom: 0 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(26,39,68,0.45)", textAlign: "center", marginBottom: 10 }}>
+                Experience Includes
+              </div>
+              <div style={{
+                background: "#1e3054",
+                padding: mobile ? "20px 20px" : "22px 36px",
+                display: "flex", flexWrap: "wrap", alignItems: "center",
+                justifyContent: "center", gap: "8px 0",
+                boxShadow: "0 4px 20px rgba(30,48,84,0.2)",
+              }}>
+                {["Paramount","BET","Nickelodeon","Medidata","Estée Lauder","MAC Cosmetics","Jo Malone","La Mer","IBC Group"].map((item, i, arr) => (
+                  <span key={i} style={{ display: "inline-flex", alignItems: "center" }}>
+                    <span style={{
+                      fontSize: mobile ? 12 : 13, color: "rgba(255,255,255,0.82)",
+                      letterSpacing: "0.04em", padding: "0 16px",
+                      borderRight: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.2)" : "none",
+                      lineHeight: 1, fontWeight: 400,
+                    }}>{item}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ══════════════════════
+          PORTFOLIO / IMPACT
+      ══════════════════════ */}
+      <section id="portfolio" style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
+        <div style={{ maxWidth: mw, margin: "0 auto" }}>
+          <Reveal>
+            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>Selected Work</div>
+            <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054", marginBottom: 14 }}>
+              Operational Leadership in Practice
+            </h2>
+            <p style={{ fontSize: 16, lineHeight: 1.78, color: "#4e607a", maxWidth: 640, marginBottom: 48 }}>
+              Examples of the operational leadership, executive support, and strategic coordination that help organizations move faster and leaders stay focused on what matters most.
+            </p>
+          </Reveal>
+          <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(3, 1fr)", gap: 16 }}>
+            {[
+              {
+                org: "IBC Group", type: "Investor Operations Infrastructure",
+                title: "Investor Operations Infrastructure for High-Growth Web3 Firm",
+                challenge: "40,000+ records spread across spreadsheets with limited visibility, inconsistent reporting, and growing operational complexity.",
+                action: "Led migration to HubSpot, coordinated internal stakeholders and engineers, removed duplicate records, built reporting infrastructure, and created operational SOPs.",
+                outcome: "21,000+ duplicate records eliminated, improved investor relationship visibility, increased reporting accuracy, and established scalable operational systems.",
+                tags: ["HubSpot","Investor Ops","Web3","Systems","SOPs"]
+              },
+              {
+                org: "MAC Cosmetics", type: "Global Artist Operations",
+                title: "Global Artist Operations Across 45+ NYFW Productions",
+                challenge: "Delivering consistent, high-quality backstage operations for MAC's Global Artists across 45 New York Fashion Week productions in one of fashion's most demanding environments.",
+                action: "Owned artist coordination, backstage logistics, scheduling, and production support from pre-show preparation through live execution across every production.",
+                outcome: "45+ productions executed without operational disruption. MAC's backstage standards upheld across every show, with seamless coordination between artists, models, and production teams.",
+                tags: ["NYFW","Artist Coordination","Backstage Ops","Production","Events"]
+              },
+              {
+                org: "BET Networks", type: "Executive & Campaign Operations",
+                title: "Executive Support Across 50+ Productions and Campaigns",
+                challenge: "Executive priorities, campaign timelines, and cross-functional deliverables moving simultaneously across creative, marketing, and production divisions with limited operational infrastructure.",
+                action: "Embedded as executive support and central coordination partner, managing priorities, tracking deliverables, facilitating stakeholder communication, and driving follow-through across teams.",
+                outcome: "Smoother execution across 50+ productions and campaigns, reduced coordination friction, stronger alignment between executive leadership and production teams, and improved on-time delivery.",
+                tags: ["Executive Support","Campaign Ops","Stakeholder Management","Creative Ops"]
+              },
+              {
+                org: "Medidata AI", type: "Enterprise Operations Infrastructure",
+                title: "15+ Cross-Functional Initiatives",
+                challenge: "Supporting complex enterprise-wide initiatives across HR, compliance, product, and leadership teams without a centralized operational framework.",
+                action: "Supported onboarding, DEIB, career development, executive transitions, and operational improvements while partnering across multiple business functions.",
+                outcome: "Improved cross-functional execution across 15+ initiatives, stronger stakeholder alignment, and operational improvements that scaled across the organization.",
+                tags: ["Operations","Stakeholder Management","Process Improvement","Programs"]
+              },
+              {
+                org: "The Estée Lauder Companies", type: "Global Brand Operations",
+                title: "25+ Global Brand Initiatives",
+                challenge: "Coordinating operational execution across multiple luxury beauty brands with global teams, tight timelines, and high-visibility stakeholder requirements.",
+                action: "Managed launches, events, stakeholder communications, and cross-functional delivery across international brand teams.",
+                outcome: "25+ global brand initiatives executed on time, with improved communication flow and cross-functional coordination across luxury brand portfolios.",
+                tags: ["Global Operations","Brand Launches","Cross-Functional","Project Coordination"]
+              },
+              {
+                org: "Aptly Intelligent & Co.", type: "Modern Executive Operations",
+                title: "AI-Powered Workflow Systems",
+                challenge: "Executives spending significant time on administrative tasks that could be automated, reducing capacity for strategic priorities.",
+                action: "Designed and deployed AI-assisted inbox triage, automated meeting summaries, SOP generation, and custom workflow systems using Claude, ChatGPT, and n8n.",
+                outcome: "Measurable time savings on routine tasks, more consistent follow-through, and operational infrastructure that scales with business growth.",
+                tags: ["AI Tools","Executive Support","Workflow Systems","Operations"]
+              },
+              {
+                org: "Executive Logistics & Operations", type: "Complex Scheduling & Travel",
+                title: "Multi-Timezone Executive Support",
+                challenge: "Senior leaders managing high-volume calendars, international travel, and shifting priorities across multiple time zones without consistent operational support.",
+                action: "Provided comprehensive calendar management, travel coordination, stakeholder communications, meeting preparation, and priority management across time zones.",
+                outcome: "Protected executive time, reduced scheduling conflicts, and ensured leaders arrived prepared for every commitment regardless of complexity or location.",
+                tags: ["Executive Support","Travel","Calendars","Stakeholders"]
+              },
+            ].map((p, i) => (
+              <Reveal key={i} delay={i * 50}>
+                <div style={{ background: "#fff", border: "1px solid #dce4f0", padding: "28px 26px", height: "100%",
+                  boxShadow: "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)",
+                  transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s" }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#4a6a9a"; e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 20px 48px rgba(30,48,84,0.12), 0 4px 14px rgba(74,106,154,0.08)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#dce4f0"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)"; }}>
+                  <div style={{ marginBottom: 12 }}>
+                    <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#4a6a9a", background: "rgba(74,106,154,0.08)", display: "inline-block", padding: "3px 9px", marginBottom: 7 }}>{p.type}</div>
+                    <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#7a8fa8" }}>{p.org}</div>
+                  </div>
+                  <h3 style={{ fontSize: 16.5, fontWeight: 600, color: "#1e3054", marginBottom: 16, lineHeight: 1.3 }}>{p.title}</h3>
+                  {[
+                    { label: "Challenge", text: p.challenge },
+                    { label: "Action",    text: p.action    },
+                    { label: "Outcome",   text: p.outcome   },
+                  ].map(({ label, text }) => text && (
+                    <div key={label} style={{ marginBottom: 12 }}>
+                      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 4 }}>{label}</div>
+                      <p style={{ fontSize: 13, lineHeight: 1.65, color: "#4e607a" }}>{text}</p>
+                    </div>
+                  ))}
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 14 }}>
+                    {p.tags.map(t => (
+                      <span key={t} style={{ fontSize: 11, fontWeight: 500, color: "#4a6a9a", background: "#eef3fb", padding: "3px 10px", letterSpacing: "0.06em" }}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ══════════════════════
+          TESTIMONIALS
+      ══════════════════════ */}
+      <section style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
+        <div style={{ maxWidth: mw, margin: "0 auto" }}>
+          <Reveal>
+            <div style={{ textAlign: "center", marginBottom: 36 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>What Our Clients Say</div>
+              <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054" }}>Testimonials</h2>
+            </div>
+          </Reveal>
+          <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(3, 1fr)", gap: 14 }}>
+            {TESTIMONIALS.map((t, i) => (
+              <Reveal key={i} delay={i * 60}>
+                <div style={{ background: "#fff", border: "1px solid #dce4f0", padding: "32px 28px", height: "100%",
+                  display: "flex", flexDirection: "column",
+                  boxShadow: "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)",
+                  transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s" }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#4a6a9a"; e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 20px 48px rgba(30,48,84,0.12), 0 4px 14px rgba(74,106,154,0.08)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#dce4f0"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)"; }}>
+                  <div className="disp" style={{ fontSize: 36, color: "#4a6a9a", lineHeight: 1, marginBottom: 16 }}>&#8220;</div>
+                  <p style={{ fontSize: 15, lineHeight: 1.78, color: "#3a4e68", marginBottom: 24, flex: 1 }}>{t.quote}</p>
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+                    <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#eef3fb", border: "1px solid #dce4f0", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <span style={{ fontSize: 14, fontWeight: 600, color: "#4a6a9a" }}>{t.name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <div style={{ fontWeight: 600, fontSize: 14, color: "#1e3054" }}>{t.name}</div>
+                      <div style={{ fontSize: 12, color: "#4a6a9a", marginTop: 2 }}>{t.title}</div>
+                      <div style={{ fontSize: 11, color: "#7a8fa8", letterSpacing: "0.06em", textTransform: "uppercase", marginTop: 1 }}>{t.industry}</div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
           ABOUT / APPROACH
       ══════════════════════ */}
       <section id="about" style={{ background: "#1e3054", padding: `${pad} ${gutter}`, position: "relative", overflow: "hidden" }}>
@@ -651,8 +995,6 @@ export default function App() {
           </Reveal>
         </div>
       </section>
-
-      {/* ══════════════════════
           ROI CALCULATOR
       ══════════════════════ */}
       <section style={{ background: "#1e3054", padding: `${pad} ${gutter}` }}>
@@ -725,44 +1067,6 @@ export default function App() {
       </section>
 
       {/* ══════════════════════
-          BEFORE / AFTER
-      ══════════════════════ */}
-      <section style={{ background: "#f0f2f6", padding: `${pad} ${gutter}` }}>
-        <div style={{ maxWidth: mw, margin: "0 auto" }}>
-          <Reveal>
-            <div style={{ textAlign: "center", marginBottom: 48 }}>
-              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>The Transformation</div>
-              <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054" }}>Before vs. After</h2>
-            </div>
-          </Reveal>
-          <Reveal delay={60}>
-            <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : "1fr 1fr", gap: 16 }}>
-              <div style={{ background: "#fff", border: "1px solid #dce4f0", padding: "36px 32px", boxShadow: "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)" }}>
-                <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(26,39,68,0.4)", marginBottom: 22 }}>Before Working Together</div>
-                {BEFORE_AFTER.before.map((t, i) => (
-                  <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 14 }}>
-                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#b0b8c8", flexShrink: 0, marginTop: 7 }} />
-                    <span style={{ fontSize: 15, lineHeight: 1.65, color: "#5a6f87" }}>{t}</span>
-                  </div>
-                ))}
-              </div>
-              <div style={{ background: "#1e3054", border: "1px solid #1e3054", padding: "36px 32px", boxShadow: "0 4px 20px rgba(30,48,84,0.25), 0 2px 6px rgba(0,0,0,0.15)" }}>
-                <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 22 }}>After Working Together</div>
-                {BEFORE_AFTER.after.map((t, i) => (
-                  <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 14 }}>
-                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: "rgba(255,255,255,0.6)", flexShrink: 0, marginTop: 7 }} />
-                    <span style={{ fontSize: 15, lineHeight: 1.65, color: "rgba(255,255,255,0.78)" }}>{t}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ══════════════════════
-          SERVICES
-      ══════════════════════ */}
       <section id="services" style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
         <div style={{ maxWidth: mw, margin: "0 auto" }}>
           <Reveal>
@@ -976,111 +1280,28 @@ export default function App() {
       </section>
 
       {/* ══════════════════════
-          TRUSTED ACROSS INDUSTRIES
-      ══════════════════════ */}
-      <section style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
+      <section id="sprints" style={{ background: "#f0f2f6", padding: `${pad} ${gutter}` }}>
         <div style={{ maxWidth: mw, margin: "0 auto" }}>
           <Reveal>
-            {/* Eyebrow */}
-            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 18 }}>
-              Executive Experience
-            </div>
-
-            {/* Main heading */}
-            <h2 className="disp" style={{
-              fontSize: mobile ? "clamp(28px,8vw,40px)" : "clamp(32px,3.8vw,52px)",
-              color: "#1e3054", marginBottom: 32, lineHeight: 1.1,
-            }}>
-              Supporting Leaders Across Industries<br />
-              <span style={{ color: "#4a6a9a" }}>for 15+ Years</span>
-            </h2>
-
-            {/* Industry badge chips */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 10px", marginBottom: 36 }}>
-              {INDUSTRIES.map((ind, i) => (
-                <span key={i}
-                  style={{
-                    fontSize: 13, fontWeight: 500, color: "#1e3054",
-                    background: "#f4f7fc", border: "1px solid #d0ddf0",
-                    padding: "8px 18px", letterSpacing: "0.03em",
-                    boxShadow: "0 1px 4px rgba(30,48,84,0.06)",
-                    transition: "all 0.22s",
-                    cursor: "default",
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.background = "#1e3054";
-                    e.currentTarget.style.color = "#fff";
-                    e.currentTarget.style.borderColor = "#1e3054";
-                    e.currentTarget.style.boxShadow = "0 4px 14px rgba(30,48,84,0.18)";
-                    e.currentTarget.style.transform = "translateY(-2px)";
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.background = "#f4f7fc";
-                    e.currentTarget.style.color = "#1e3054";
-                    e.currentTarget.style.borderColor = "#d0ddf0";
-                    e.currentTarget.style.boxShadow = "0 1px 4px rgba(30,48,84,0.06)";
-                    e.currentTarget.style.transform = "translateY(0)";
-                  }}>
-                  {ind}
-                </span>
-              ))}
-            </div>
-
-            {/* Supporting copy */}
-            <div style={{
-              paddingTop: 32, paddingBottom: 32,
-              borderTop: "1px solid #e6edf8", borderBottom: "1px solid #e6edf8",
-              marginBottom: 32,
-              display: "grid",
-              gridTemplateColumns: desktop ? "1fr 1fr" : "1fr",
-              gap: desktop ? 60 : 28,
-              alignItems: "flex-start",
-            }}>
-              <div>
-                <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "#7a8fa8", marginBottom: 12 }}>
-                  Scope of Support
-                </div>
-                <p style={{ fontSize: mobile ? 15 : 16, lineHeight: 1.8, color: "#3a4e68" }}>
-                  Supporting executives, founders, creative leaders, and operational teams in fast-paced, high-growth, and global environments. Bringing structure, execution, and trusted partnership across diverse industries and business stages.
-                </p>
-              </div>
-              <div>
-                <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "#7a8fa8", marginBottom: 12 }}>
-                  Experience Includes
-                </div>
-                <p style={{ fontSize: mobile ? 14 : 15, lineHeight: 1.85, color: "#4e607a" }}>
-                  Estée Lauder Companies, MAC Cosmetics, Jo Malone London, La Mer, YSL Beauté (L'Oréal), Paramount, BET, VH1, Medidata AI, and International Blockchain Consulting Group.
-                </p>
-              </div>
-            </div>
+            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>Additional Services</div>
+            <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054", marginBottom: 14 }}>Focused Executive Sprints</h2>
+            <p style={{ fontSize: 16, lineHeight: 1.75, color: "#4e607a", maxWidth: 500, marginBottom: 44 }}>
+              Time-bound, outcome-driven engagements for specific initiatives or transitions.
+            </p>
           </Reveal>
-
-          {/* Credential bar */}
-          <Reveal delay={80}>
-            <div style={{
-              background: "#1e3054",
-              padding: mobile ? "18px 20px" : "20px 36px",
-              display: "flex", flexWrap: "wrap", alignItems: "center",
-              justifyContent: "center", gap: "8px 0",
-              boxShadow: "0 4px 20px rgba(30,48,84,0.2)",
-            }}>
-              {[
-                "PMP Certified",
-                "Master of Public Administration (MPA)",
-                "Georgia Notary Public",
-                "15+ Years Supporting Leaders",
-              ].map((item, i, arr) => (
-                <span key={i} style={{ display: "inline-flex", alignItems: "center" }}>
-                  <span style={{
-                    fontSize: mobile ? 12 : 13, color: "rgba(255,255,255,0.82)",
-                    letterSpacing: "0.04em", padding: "0 20px",
-                    borderRight: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.2)" : "none",
-                    lineHeight: 1, fontWeight: 400,
-                  }}>
-                    {item}
-                  </span>
-                </span>
-              ))}
+          <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(4, 1fr)", gap: 14, marginBottom: 32 }}>
+            {SPRINTS.map((s, i) => (
+              <Reveal key={s.title} delay={i * 55}>
+                <div className="sprint-card">
+                  <h3 className="disp" style={{ fontSize: 20, color: "#1e3054", marginBottom: 12, lineHeight: 1.25 }}>{s.title}</h3>
+                  <p style={{ fontSize: 14, lineHeight: 1.7, color: "#4e607a" }}>{s.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={180}>
+            <div style={{ textAlign: "center" }}>
+              <button className="btn-primary" onClick={() => go("#contact")} style={{ width: mobile ? "100%" : "auto" }}>Request a Sprint Conversation</button>
             </div>
           </Reveal>
         </div>
@@ -1125,67 +1346,6 @@ export default function App() {
       {/* ══════════════════════
           SPRINTS
       ══════════════════════ */}
-      <section id="sprints" style={{ background: "#f0f2f6", padding: `${pad} ${gutter}` }}>
-        <div style={{ maxWidth: mw, margin: "0 auto" }}>
-          <Reveal>
-            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>Additional Services</div>
-            <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054", marginBottom: 14 }}>Focused Executive Sprints</h2>
-            <p style={{ fontSize: 16, lineHeight: 1.75, color: "#4e607a", maxWidth: 500, marginBottom: 44 }}>
-              Time-bound, outcome-driven engagements for specific initiatives or transitions.
-            </p>
-          </Reveal>
-          <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(4, 1fr)", gap: 14, marginBottom: 32 }}>
-            {SPRINTS.map((s, i) => (
-              <Reveal key={s.title} delay={i * 55}>
-                <div className="sprint-card">
-                  <h3 className="disp" style={{ fontSize: 20, color: "#1e3054", marginBottom: 12, lineHeight: 1.25 }}>{s.title}</h3>
-                  <p style={{ fontSize: 14, lineHeight: 1.7, color: "#4e607a" }}>{s.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={180}>
-            <div style={{ textAlign: "center" }}>
-              <button className="btn-primary" onClick={() => go("#contact")} style={{ width: mobile ? "100%" : "auto" }}>Request a Sprint Conversation</button>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ══════════════════════
-          TESTIMONIALS
-      ══════════════════════ */}
-      <section style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
-        <div style={{ maxWidth: mw, margin: "0 auto" }}>
-          <Reveal>
-            <div style={{ textAlign: "center", marginBottom: 48 }}>
-              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>What Our Clients Say</div>
-              <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054" }}>Testimonials</h2>
-            </div>
-          </Reveal>
-          <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(3, 1fr)", gap: 14 }}>
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={i} delay={i * 60}>
-                <div style={{ background: "#fff", border: "1px solid #dce4f0", padding: "32px 28px", height: "100%",
-                  display: "flex", flexDirection: "column",
-                  boxShadow: "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)",
-                  transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s" }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#4a6a9a"; e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 20px 48px rgba(30,48,84,0.12), 0 4px 14px rgba(74,106,154,0.08)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#dce4f0"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)"; }}>
-                  <div className="disp" style={{ fontSize: 36, color: "#4a6a9a", lineHeight: 1, marginBottom: 16 }}>&#8220;</div>
-                  <p style={{ fontSize: 15, lineHeight: 1.78, color: "#3a4e68", marginBottom: 24, flex: 1 }}>{t.quote}</p>
-                  <div>
-                    <div style={{ fontWeight: 600, fontSize: 14, color: "#1e3054" }}>{t.name}</div>
-                    <div style={{ fontSize: 12, color: "#7a8fa8", letterSpacing: "0.06em", textTransform: "uppercase", marginTop: 3 }}>{t.title}</div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════
           HOW IT WORKS
       ══════════════════════ */}
       <section style={{ background: "#f0f2f6", padding: `${pad} ${gutter}` }}>
@@ -1248,89 +1408,6 @@ export default function App() {
       </section>
 
       {/* ══════════════════════
-          PORTFOLIO / IMPACT
-      ══════════════════════ */}
-      <section id="portfolio" style={{ background: "#f0f2f6", padding: `${pad} ${gutter}` }}>
-        <div style={{ maxWidth: mw, margin: "0 auto" }}>
-          <Reveal>
-            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>Portfolio</div>
-            <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054", marginBottom: 14 }}>
-              Selected Work
-            </h2>
-            <p style={{ fontSize: 16, lineHeight: 1.75, color: "#4e607a", maxWidth: 520, marginBottom: 48 }}>
-              A snapshot of the operational work behind the growth.
-            </p>
-          </Reveal>
-          <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(3, 1fr)", gap: 16 }}>
-            {[
-              {
-                org: "IBC Group", type: "CRM Operations + Partnerships",
-                title: "HubSpot Migration & Investor Operations Build",
-                desc: "Led process improvements during the migration from spreadsheets to HubSpot, partnering with internal teams and HubSpot engineers to clean 40,000+ records, resolve duplicate data, build dashboards, and create SOPs supporting Web3 and crypto partnership development.",
-                tags: ["CRM","HubSpot","Web3","Dashboards","SOPs"]
-              },
-              {
-                org: "MAC Cosmetics", type: "Backstage Operations",
-                title: "45+ NYFW Backstage Productions",
-                desc: "Managed backstage operations for MAC's Global Artists during New York Fashion Week, coordinating testing schedules, artist assignments, chair setup, model timing, and real-time production needs from preparation through show execution.",
-                tags: ["NYFW","Backstage Ops","Artist Coordination","Production Support"]
-              },
-              {
-                org: "BET Networks", type: "Executive & Creative Operations",
-                title: "50+ Productions & Campaigns Supported",
-                desc: "Served as a central coordination partner across creative, marketing, and production teams, supporting executive priorities, project workflows, asset delivery, and high-visibility campaigns in fast-paced environments.",
-                tags: ["Executive Support","Creative Ops","Production","Coordination"]
-              },
-              {
-                org: "Medidata AI", type: "Enterprise Operations Infrastructure",
-                title: "15+ Cross-Functional Initiatives",
-                desc: "Supported enterprise-wide initiatives spanning onboarding, DEIB, career development, executive transitions, and operational improvements while partnering across product, compliance, HR, and leadership teams.",
-                tags: ["Operations","Stakeholder Management","Process Improvement","Programs"]
-              },
-              {
-                org: "The Estée Lauder Companies", type: "Global Brand Operations",
-                title: "25+ Global Brand Initiatives",
-                desc: "Coordinated operational execution across luxury beauty brands, partnering with global teams to support launches, events, stakeholder communications, timelines, and cross-functional delivery.",
-                tags: ["Global Operations","Brand Launches","Cross-Functional","Project Coordination"]
-              },
-              {
-                org: "Aptly Intelligent & Co.", type: "Modern Executive Operations",
-                title: "AI-Powered Systems & Support",
-                desc: "Leveraging AI-powered tools and modern workflows to streamline executive support, meeting management, research, documentation, and operational processes while enhancing efficiency and execution.",
-                tags: ["AI Tools","Executive Support","Workflow Systems","Operations"]
-              },
-              {
-                org: "Executive Logistics & Operations", type: "Complex Scheduling & Travel",
-                title: "Multi-Timezone Executive Support",
-                desc: "Supported senior leaders through high-volume calendar management, international travel coordination, executive communications, meeting preparation, stakeholder engagement, and shifting priorities across multiple time zones.",
-                tags: ["Executive Support","Travel","Calendars","Stakeholders"]
-              },
-            ].map((p, i) => (
-              <Reveal key={i} delay={i * 50}>
-                <div style={{ background: "#fff", border: "1px solid #dce4f0", padding: "28px 26px", height: "100%",
-                  boxShadow: "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)",
-                  transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s" }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#4a6a9a"; e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 20px 48px rgba(30,48,84,0.12), 0 4px 14px rgba(74,106,154,0.08)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#dce4f0"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)"; }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 14 }}>
-                    <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#7a8fa8" }}>{p.org}</div>
-                    <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#4a6a9a", background: "rgba(74,106,154,0.1)", padding: "3px 8px", flexShrink: 0, marginLeft: 8 }}>{p.type}</div>
-                  </div>
-                  <h3 style={{ fontSize: 17, fontWeight: 600, color: "#1e3054", marginBottom: 12, lineHeight: 1.3 }}>{p.title}</h3>
-                  <p style={{ fontSize: 13.5, lineHeight: 1.7, color: "#4e607a", marginBottom: 18 }}>{p.desc}</p>
-                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                    {p.tags.map(t => (
-                      <span key={t} style={{ fontSize: 11, fontWeight: 500, color: "#4a6a9a", background: "#eef3fb", padding: "3px 10px", letterSpacing: "0.06em" }}>{t}</span>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════
           FAQ
       ══════════════════════ */}
       <section id="faq" style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
@@ -1368,12 +1445,15 @@ export default function App() {
 
             {/* Left, Contact info */}
             <Reveal>
-              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 20 }}>Let's Get Started</div>
+              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 20 }}>Executive Discovery Form™</div>
               <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,46px)", color: "#fff", marginBottom: 20 }}>
-                Start with the Discovery Form
+                The First Step Toward Operational Clarity
               </h2>
-              <p style={{ fontSize: 16, lineHeight: 1.78, color: "rgba(255,255,255,0.62)", marginBottom: 32 }}>
-                Share your role, priorities, and what's creating friction. I'll review and follow up with a call link if aligned.
+              <p style={{ fontSize: 16, lineHeight: 1.78, color: "rgba(255,255,255,0.62)", marginBottom: 16 }}>
+                The Executive Discovery Form is designed to identify operational bottlenecks, leadership capacity constraints, project challenges, and support opportunities.
+              </p>
+              <p style={{ fontSize: 15, lineHeight: 1.75, color: "rgba(255,255,255,0.48)", marginBottom: 32 }}>
+                This is not a generic contact form. It is the first step in determining whether Aptly Intelligent & Co. is the right operational partner for your organization.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 {[["Remote, US Based","By appointment only"],["jessica@aptlyintelligent.com","M-F 9am to 6pm EST"]].map(([a,b], i) => (
@@ -1503,7 +1583,7 @@ export default function App() {
                     }
                   }}
                     style={{ width: "100%", background: "rgba(255,255,255,0.95)", color: "#1e3054", justifyContent: "center" }}>
-                    Complete Your Discovery Form
+                    Submit Your Executive Discovery Form
                   </button>
                 </div>
               )}
