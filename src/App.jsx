@@ -1613,14 +1613,13 @@ export default function App() {
                           headers: { "Content-Type": "application/json" },
                           body: JSON.stringify({
                             service_id:  "service_7kcjwje",
-                            template_id: "template_kjtf6y8",
+                            template_id: "template_otu5ukn",
                             user_id:     "g9WvBYx_reVuFI72j",
                             template_params: {
                               to_email:   form.email,
-                              from_name:  "Jessica Ocasio-Salters",
+                              from_name:  form.name,
                               from_email: "jessica@aptlyintelligent.com",
                               subject:    `Your Executive Discovery Form — Aptly Intelligent & Co.`,
-                              message:    replyMsg,
                             }
                           })
                         });
