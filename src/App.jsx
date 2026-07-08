@@ -71,17 +71,17 @@ const BEFORE_AFTER = {
 
 const PLANS = [
   { label: "Foundation", hours: "Up to 20 Hours / Month", price: "$1,500+/month",
-    best: "For founders and professionals who need relief from administrative overload and day-to-day coordination.",
+    best: "Ideal for founders and professionals ready to delegate operational weight and reclaim time for higher-leverage work.",
     features: ["Calendar and meeting management","Inbox organization and follow-up","Travel coordination","Expense tracking and reporting","Document preparation","Weekly executive touchpoint"] },
   { label: "Growth", hours: "Up to 35 Hours / Month", price: "$2,700+/month",
-    best: "For businesses managing multiple projects, vendors, stakeholders, and operational priorities.",
+    best: "Designed for growing organizations managing multiple workstreams, vendors, and stakeholders simultaneously.",
     features: ["Everything in Foundation","Project coordination","Vendor and stakeholder management","Meeting agendas and action tracking","Research and reporting","Process documentation"],
     popular: true },
   { label: "Executive", hours: "Up to 50 Hours / Month", price: "$4,500+/month",
-    best: "For leaders who need a trusted strategic operations partner embedded within their business.",
+    best: "For senior leaders who need a trusted operational partner embedded in their business and aligned to executive priorities.",
     features: ["Everything in Growth","Strategic project support","Executive communications","Cross-functional coordination","Event and offsite planning","Priority management and escalation support"] },
   { label: "Executive Access", hours: "Dedicated Capacity", price: "Custom Engagement",
-    best: "For organizations requiring specialized executive operations, project leadership, systems implementation, or high-touch support.",
+    best: "For organizations with complex, high-stakes operational needs that require dedicated strategic partnership and full executive alignment.",
     features: ["Dedicated monthly capacity","Expanded availability coverage","Multi-project coordination","Executive and personal support integration","High-priority response support","Custom engagement structure"],
     limited: true },
 ];
@@ -564,11 +564,11 @@ export default function App() {
           </h1>
 
           <p style={{ fontSize: mobile ? 15 : 17, lineHeight: 1.78, color: "rgba(255,255,255,0.82)", marginBottom: 22, maxWidth: 520 }}>
-            Executive operations, project leadership, and strategic support for founders, attorneys, executives, investors, and growing businesses that need more capacity without adding a full-time hire.
+            The right operational partner recovers executive capacity, removes bottlenecks, and builds the systems that let leaders focus on growth — without the overhead of a full-time hire.
           </p>
 
           <div style={{ marginBottom: 32, display: "flex", flexDirection: "column", gap: 10 }}>
-            {["Recover 10 to 20 hours each week","Reduce operational friction","Keep projects moving","Create executive leverage"].map((item, i) => (
+            {["Recover 10–20 executive hours every week","Increase leadership capacity","Accelerate strategic initiatives","Build scalable operational systems"].map((item, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <div style={{ width: 5, height: 5, borderRadius: "50%", background: "rgba(255,255,255,0.65)", flexShrink: 0 }} />
                 <span style={{ fontSize: 14.5, color: "rgba(255,255,255,0.75)", lineHeight: 1.5 }}>{item}</span>
@@ -580,13 +580,13 @@ export default function App() {
             <button className="btn-primary" onClick={() => go("#contact")} style={{ background: "rgba(255,255,255,0.95)", color: "#1e3054", width: mobile ? "100%" : "auto" }}>
               Start Your Executive Discovery Form
             </button>
-            <button className="btn-ghost-white" onClick={() => window.open("https://www.linkedin.com/in/jessica-ocasio/", "_blank")} style={{ width: mobile ? "100%" : "auto" }}>
-              Connect on LinkedIn
+            <button onClick={() => window.open("https://www.linkedin.com/in/jessica-ocasio/", "_blank")} style={{ background: "transparent", border: "none", color: "rgba(255,255,255,0.55)", fontSize: 13, fontWeight: 500, letterSpacing: "0.04em", cursor: "pointer", padding: "10px 0", textDecoration: "underline", textUnderlineOffset: 3, width: mobile ? "100%" : "auto" }}>
+              LinkedIn ↗
             </button>
           </div>
 
           <div style={{ marginTop: 36, paddingTop: 24, borderTop: "1px solid rgba(255,255,255,0.15)", display: "flex", gap: 24, flexWrap: "wrap" }}>
-            {["PMP Certified","MPA","GA Notary Public","15+ Years"].map(t => (
+            {["PMP Certified","Master of Public Administration","15+ Years Supporting Executive Leadership"].map(t => (
               <span key={t} style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", display: "flex", alignItems: "center", gap: 7 }}>
                 <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 10 }}>+</span>{t}
               </span>
@@ -598,7 +598,7 @@ export default function App() {
       {/* ── TRUST BANNER ── */}
       <section style={{ background: "#1e3054", padding: `12px ${gutter}`, textAlign: "center" }}>
         <p style={{ fontSize: mobile ? 12.5 : 13.5, color: "rgba(255,255,255,0.82)", letterSpacing: "0.04em", lineHeight: 1.6 }}>
-          Trusted by leaders across media, healthcare, beauty, technology, finance, and emerging industries for more than 15 years.
+          Trusted by executives, founders, and leadership teams across media, beauty, healthcare, technology, and finance for more than 15 years.
         </p>
       </section>
 
@@ -932,10 +932,10 @@ export default function App() {
           <Reveal>
             <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>Services</div>
             <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054", marginBottom: 14 }}>
-              How Can I Help You
+              Executive Advisory Services
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.75, color: "#4e607a", maxWidth: 500, marginBottom: 48 }}>
-              Core operations plus boutique specialized services, all delivered with precision.
+              Strategic operations and executive partnership, structured around your priorities.
             </p>
           </Reveal>
 
