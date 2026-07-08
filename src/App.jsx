@@ -801,151 +801,6 @@ export default function App() {
       {/* ══════════════════════
           PORTFOLIO / IMPACT
       ══════════════════════ */}
-      <section id="portfolio" style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
-        <div style={{ maxWidth: mw, margin: "0 auto" }}>
-          <Reveal>
-            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>Selected Work</div>
-            <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054", marginBottom: 14 }}>
-              Operational Leadership in Practice
-            </h2>
-            <p style={{ fontSize: 16, lineHeight: 1.78, color: "#4e607a", maxWidth: 640, marginBottom: 48 }}>
-              Examples of the operational leadership, executive support, and strategic coordination that help organizations move faster and leaders stay focused on what matters most.
-            </p>
-          </Reveal>
-          <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(3, 1fr)", gap: 16 }}>
-            {[
-              {
-                org: "IBC Group", type: "Investor Operations Infrastructure",
-                title: "Investor Operations Infrastructure for High-Growth Web3 Firm",
-                challenge: "40,000+ records spread across spreadsheets with limited visibility, inconsistent reporting, and growing operational complexity.",
-                action: "Led migration to HubSpot, coordinated internal stakeholders and engineers, removed duplicate records, built reporting infrastructure, and created operational SOPs.",
-                outcome: "21,000+ duplicate records eliminated, improved investor relationship visibility, increased reporting accuracy, and established scalable operational systems.",
-                tags: ["HubSpot","Investor Ops","Web3","Systems","SOPs"]
-              },
-              {
-                org: "MAC Cosmetics", type: "Global Artist Operations",
-                title: "Global Artist Operations Across 45+ NYFW Productions",
-                challenge: "Delivering consistent, high-quality backstage operations for MAC's Global Artists across 45 New York Fashion Week productions in one of fashion's most demanding environments.",
-                action: "Owned artist coordination, backstage logistics, scheduling, and production support from pre-show preparation through live execution across every production.",
-                outcome: "45+ productions executed without operational disruption. MAC's backstage standards upheld across every show, with seamless coordination between artists, models, and production teams.",
-                tags: ["NYFW","Artist Coordination","Backstage Ops","Production","Events"]
-              },
-              {
-                org: "BET Networks", type: "Executive & Campaign Operations",
-                title: "Executive Support Across 50+ Productions and Campaigns",
-                challenge: "Executive priorities, campaign timelines, and cross-functional deliverables moving simultaneously across creative, marketing, and production divisions with limited operational infrastructure.",
-                action: "Embedded as executive support and central coordination partner, managing priorities, tracking deliverables, facilitating stakeholder communication, and driving follow-through across teams.",
-                outcome: "Smoother execution across 50+ productions and campaigns, reduced coordination friction, stronger alignment between executive leadership and production teams, and improved on-time delivery.",
-                tags: ["Executive Support","Campaign Ops","Stakeholder Management","Creative Ops"]
-              },
-              {
-                org: "Medidata AI", type: "Enterprise Operations Infrastructure",
-                title: "15+ Cross-Functional Initiatives",
-                challenge: "Supporting complex enterprise-wide initiatives across HR, compliance, product, and leadership teams without a centralized operational framework.",
-                action: "Supported onboarding, DEIB, career development, executive transitions, and operational improvements while partnering across multiple business functions.",
-                outcome: "Improved cross-functional execution across 15+ initiatives, stronger stakeholder alignment, and operational improvements that scaled across the organization.",
-                tags: ["Operations","Stakeholder Management","Process Improvement","Programs"]
-              },
-              {
-                org: "The Estée Lauder Companies", type: "Global Brand Operations",
-                title: "25+ Global Brand Initiatives",
-                challenge: "Coordinating operational execution across multiple luxury beauty brands with global teams, tight timelines, and high-visibility stakeholder requirements.",
-                action: "Managed launches, events, stakeholder communications, and cross-functional delivery across international brand teams.",
-                outcome: "25+ global brand initiatives executed on time, with improved communication flow and cross-functional coordination across luxury brand portfolios.",
-                tags: ["Global Operations","Brand Launches","Cross-Functional","Project Coordination"]
-              },
-              {
-                org: "Aptly Intelligent & Co.", type: "Modern Executive Operations",
-                title: "AI-Powered Workflow Systems",
-                challenge: "Executives spending significant time on administrative tasks that could be automated, reducing capacity for strategic priorities.",
-                action: "Designed and deployed AI-assisted inbox triage, automated meeting summaries, SOP generation, and custom workflow systems using Claude, ChatGPT, and n8n.",
-                outcome: "Measurable time savings on routine tasks, more consistent follow-through, and operational infrastructure that scales with business growth.",
-                tags: ["AI Tools","Executive Support","Workflow Systems","Operations"]
-              },
-              {
-                org: "Executive Logistics & Operations", type: "Complex Scheduling & Travel",
-                title: "Multi-Timezone Executive Support",
-                challenge: "Senior leaders managing high-volume calendars, international travel, and shifting priorities across multiple time zones without consistent operational support.",
-                action: "Provided comprehensive calendar management, travel coordination, stakeholder communications, meeting preparation, and priority management across time zones.",
-                outcome: "Protected executive time, reduced scheduling conflicts, and ensured leaders arrived prepared for every commitment regardless of complexity or location.",
-                tags: ["Executive Support","Travel","Calendars","Stakeholders"]
-              },
-            ].map((p, i) => (
-              <Reveal key={i} delay={i * 50}>
-                <div style={{ background: "#fff", border: "1px solid #dce4f0", padding: "28px 26px", height: "100%",
-                  boxShadow: "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)",
-                  transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s" }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#4a6a9a"; e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 20px 48px rgba(30,48,84,0.12), 0 4px 14px rgba(74,106,154,0.08)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#dce4f0"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)"; }}>
-                  <div style={{ marginBottom: 12 }}>
-                    <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#4a6a9a", background: "rgba(74,106,154,0.08)", display: "inline-block", padding: "3px 9px", marginBottom: 7 }}>{p.type}</div>
-                    <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#7a8fa8" }}>{p.org}</div>
-                  </div>
-                  <h3 style={{ fontSize: 16.5, fontWeight: 600, color: "#1e3054", marginBottom: 16, lineHeight: 1.3 }}>{p.title}</h3>
-                  {[
-                    { label: "Challenge", text: p.challenge },
-                    { label: "Action",    text: p.action    },
-                    { label: "Outcome",   text: p.outcome   },
-                  ].map(({ label, text }) => text && (
-                    <div key={label} style={{ marginBottom: 12 }}>
-                      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 4 }}>{label}</div>
-                      <p style={{ fontSize: 13, lineHeight: 1.65, color: "#4e607a" }}>{text}</p>
-                    </div>
-                  ))}
-                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 14 }}>
-                    {p.tags.map(t => (
-                      <span key={t} style={{ fontSize: 11, fontWeight: 500, color: "#4a6a9a", background: "#eef3fb", padding: "3px 10px", letterSpacing: "0.06em" }}>{t}</span>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════
-          TESTIMONIALS
-      ══════════════════════ */}
-      <section style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
-        <div style={{ maxWidth: mw, margin: "0 auto" }}>
-          <Reveal>
-            <div style={{ textAlign: "center", marginBottom: 36 }}>
-              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>What Our Clients Say</div>
-              <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054" }}>Testimonials</h2>
-            </div>
-          </Reveal>
-          <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(3, 1fr)", gap: 14 }}>
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={i} delay={i * 60}>
-                <div style={{ background: "#fff", border: "1px solid #dce4f0", padding: "32px 28px", height: "100%",
-                  display: "flex", flexDirection: "column",
-                  boxShadow: "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)",
-                  transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s" }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#4a6a9a"; e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 20px 48px rgba(30,48,84,0.12), 0 4px 14px rgba(74,106,154,0.08)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#dce4f0"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)"; }}>
-                  <div className="disp" style={{ fontSize: 36, color: "#4a6a9a", lineHeight: 1, marginBottom: 16 }}>&#8220;</div>
-                  <p style={{ fontSize: 15, lineHeight: 1.78, color: "#3a4e68", marginBottom: 24, flex: 1 }}>{t.quote}</p>
-                  <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
-                    <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#eef3fb", border: "1px solid #dce4f0", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <span style={{ fontSize: 14, fontWeight: 600, color: "#4a6a9a" }}>{t.name.charAt(0)}</span>
-                    </div>
-                    <div>
-                      <div style={{ fontWeight: 600, fontSize: 14, color: "#1e3054" }}>{t.name}</div>
-                      <div style={{ fontSize: 12, color: "#4a6a9a", marginTop: 2 }}>{t.title}</div>
-                      <div style={{ fontSize: 11, color: "#7a8fa8", letterSpacing: "0.06em", textTransform: "uppercase", marginTop: 1 }}>{t.industry}</div>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════
-          ABOUT / APPROACH
-      ══════════════════════ */}
       <section id="about" style={{ background: "#1e3054", padding: `${pad} ${gutter}`, position: "relative", overflow: "hidden" }}>
         {/* Full-bleed office image — bottom portion, since top was used in hero */}
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
@@ -1285,6 +1140,116 @@ export default function App() {
       </section>
 
       {/* ══════════════════════
+          PORTFOLIO / IMPACT
+      ══════════════════════ */}
+      <section id="portfolio" style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
+        <div style={{ maxWidth: mw, margin: "0 auto" }}>
+          <Reveal>
+            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>Selected Work</div>
+            <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054", marginBottom: 14 }}>
+              Operational Leadership in Practice
+            </h2>
+            <p style={{ fontSize: 16, lineHeight: 1.78, color: "#4e607a", maxWidth: 640, marginBottom: 48 }}>
+              Examples of the operational leadership, executive support, and strategic coordination that help organizations move faster and leaders stay focused on what matters most.
+            </p>
+          </Reveal>
+          <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(3, 1fr)", gap: 16 }}>
+            {[
+              {
+                org: "IBC Group", type: "Investor Operations Infrastructure",
+                title: "Investor Operations Infrastructure for High-Growth Web3 Firm",
+                challenge: "40,000+ records spread across spreadsheets with limited visibility, inconsistent reporting, and growing operational complexity.",
+                action: "Led migration to HubSpot, coordinated internal stakeholders and engineers, removed duplicate records, built reporting infrastructure, and created operational SOPs.",
+                outcome: "21,000+ duplicate records eliminated, improved investor relationship visibility, increased reporting accuracy, and established scalable operational systems.",
+                tags: ["HubSpot","Investor Ops","Web3","Systems","SOPs"]
+              },
+              {
+                org: "MAC Cosmetics", type: "Global Artist Operations",
+                title: "Global Artist Operations Across 45+ NYFW Productions",
+                challenge: "Delivering consistent, high-quality backstage operations for MAC's Global Artists across 45 New York Fashion Week productions in one of fashion's most demanding environments.",
+                action: "Owned artist coordination, backstage logistics, scheduling, and production support from pre-show preparation through live execution across every production.",
+                outcome: "45+ productions executed without operational disruption. MAC's backstage standards upheld across every show, with seamless coordination between artists, models, and production teams.",
+                tags: ["NYFW","Artist Coordination","Backstage Ops","Production","Events"]
+              },
+              {
+                org: "BET Networks", type: "Executive & Campaign Operations",
+                title: "Executive Support Across 50+ Productions and Campaigns",
+                challenge: "Executive priorities, campaign timelines, and cross-functional deliverables moving simultaneously across creative, marketing, and production divisions with limited operational infrastructure.",
+                action: "Embedded as executive support and central coordination partner, managing priorities, tracking deliverables, facilitating stakeholder communication, and driving follow-through across teams.",
+                outcome: "Smoother execution across 50+ productions and campaigns, reduced coordination friction, stronger alignment between executive leadership and production teams, and improved on-time delivery.",
+                tags: ["Executive Support","Campaign Ops","Stakeholder Management","Creative Ops"]
+              },
+              {
+                org: "Medidata AI", type: "Enterprise Operations Infrastructure",
+                title: "15+ Cross-Functional Initiatives",
+                challenge: "Supporting complex enterprise-wide initiatives across HR, compliance, product, and leadership teams without a centralized operational framework.",
+                action: "Supported onboarding, DEIB, career development, executive transitions, and operational improvements while partnering across multiple business functions.",
+                outcome: "Improved cross-functional execution across 15+ initiatives, stronger stakeholder alignment, and operational improvements that scaled across the organization.",
+                tags: ["Operations","Stakeholder Management","Process Improvement","Programs"]
+              },
+              {
+                org: "The Estée Lauder Companies", type: "Global Brand Operations",
+                title: "25+ Global Brand Initiatives",
+                challenge: "Coordinating operational execution across multiple luxury beauty brands with global teams, tight timelines, and high-visibility stakeholder requirements.",
+                action: "Managed launches, events, stakeholder communications, and cross-functional delivery across international brand teams.",
+                outcome: "25+ global brand initiatives executed on time, with improved communication flow and cross-functional coordination across luxury brand portfolios.",
+                tags: ["Global Operations","Brand Launches","Cross-Functional","Project Coordination"]
+              },
+              {
+                org: "Aptly Intelligent & Co.", type: "Modern Executive Operations",
+                title: "AI-Powered Workflow Systems",
+                challenge: "Executives spending significant time on administrative tasks that could be automated, reducing capacity for strategic priorities.",
+                action: "Designed and deployed AI-assisted inbox triage, automated meeting summaries, SOP generation, and custom workflow systems using Claude, ChatGPT, and n8n.",
+                outcome: "Measurable time savings on routine tasks, more consistent follow-through, and operational infrastructure that scales with business growth.",
+                tags: ["AI Tools","Executive Support","Workflow Systems","Operations"]
+              },
+              {
+                org: "Executive Logistics & Operations", type: "Complex Scheduling & Travel",
+                title: "Multi-Timezone Executive Support",
+                challenge: "Senior leaders managing high-volume calendars, international travel, and shifting priorities across multiple time zones without consistent operational support.",
+                action: "Provided comprehensive calendar management, travel coordination, stakeholder communications, meeting preparation, and priority management across time zones.",
+                outcome: "Protected executive time, reduced scheduling conflicts, and ensured leaders arrived prepared for every commitment regardless of complexity or location.",
+                tags: ["Executive Support","Travel","Calendars","Stakeholders"]
+              },
+            ].map((p, i) => (
+              <Reveal key={i} delay={i * 50}>
+                <div style={{ background: "#fff", border: "1px solid #dce4f0", padding: "28px 26px", height: "100%",
+                  boxShadow: "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)",
+                  transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s" }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#4a6a9a"; e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 20px 48px rgba(30,48,84,0.12), 0 4px 14px rgba(74,106,154,0.08)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#dce4f0"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)"; }}>
+                  <div style={{ marginBottom: 12 }}>
+                    <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#4a6a9a", background: "rgba(74,106,154,0.08)", display: "inline-block", padding: "3px 9px", marginBottom: 7 }}>{p.type}</div>
+                    <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#7a8fa8" }}>{p.org}</div>
+                  </div>
+                  <h3 style={{ fontSize: 16.5, fontWeight: 600, color: "#1e3054", marginBottom: 16, lineHeight: 1.3 }}>{p.title}</h3>
+                  {[
+                    { label: "Challenge", text: p.challenge },
+                    { label: "Action",    text: p.action    },
+                    { label: "Outcome",   text: p.outcome   },
+                  ].map(({ label, text }) => text && (
+                    <div key={label} style={{ marginBottom: 12 }}>
+                      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 4 }}>{label}</div>
+                      <p style={{ fontSize: 13, lineHeight: 1.65, color: "#4e607a" }}>{text}</p>
+                    </div>
+                  ))}
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 14 }}>
+                    {p.tags.map(t => (
+                      <span key={t} style={{ fontSize: 11, fontWeight: 500, color: "#4a6a9a", background: "#eef3fb", padding: "3px 10px", letterSpacing: "0.06em" }}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════
+          TESTIMONIALS
+      {/* ══════════════════════
+          SPRINTS
+      ══════════════════════ */}
       <section id="sprints" style={{ background: "#f0f2f6", padding: `${pad} ${gutter}` }}>
         <div style={{ maxWidth: mw, margin: "0 auto" }}>
           <Reveal>
@@ -1311,7 +1276,6 @@ export default function App() {
           </Reveal>
         </div>
       </section>
-
       {/* ══════════════════════
           WHO THIS IS FOR
       ══════════════════════ */}
@@ -1347,10 +1311,6 @@ export default function App() {
           </Reveal>
         </div>
       </section>
-
-      {/* ══════════════════════
-          SPRINTS
-      ══════════════════════ */}
       {/* ══════════════════════
           HOW IT WORKS
       ══════════════════════ */}
@@ -1415,6 +1375,45 @@ export default function App() {
 
       {/* ══════════════════════
           FAQ
+      ══════════════════════ */}
+      <section style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
+        <div style={{ maxWidth: mw, margin: "0 auto" }}>
+          <Reveal>
+            <div style={{ textAlign: "center", marginBottom: 36 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>What Our Clients Say</div>
+              <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054" }}>Testimonials</h2>
+            </div>
+          </Reveal>
+          <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(3, 1fr)", gap: 14 }}>
+            {TESTIMONIALS.map((t, i) => (
+              <Reveal key={i} delay={i * 60}>
+                <div style={{ background: "#fff", border: "1px solid #dce4f0", padding: "32px 28px", height: "100%",
+                  display: "flex", flexDirection: "column",
+                  boxShadow: "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)",
+                  transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s" }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#4a6a9a"; e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 20px 48px rgba(30,48,84,0.12), 0 4px 14px rgba(74,106,154,0.08)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#dce4f0"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)"; }}>
+                  <div className="disp" style={{ fontSize: 36, color: "#4a6a9a", lineHeight: 1, marginBottom: 16 }}>&#8220;</div>
+                  <p style={{ fontSize: 15, lineHeight: 1.78, color: "#3a4e68", marginBottom: 24, flex: 1 }}>{t.quote}</p>
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+                    <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#eef3fb", border: "1px solid #dce4f0", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <span style={{ fontSize: 14, fontWeight: 600, color: "#4a6a9a" }}>{t.name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <div style={{ fontWeight: 600, fontSize: 14, color: "#1e3054" }}>{t.name}</div>
+                      <div style={{ fontSize: 12, color: "#4a6a9a", marginTop: 2 }}>{t.title}</div>
+                      <div style={{ fontSize: 11, color: "#7a8fa8", letterSpacing: "0.06em", textTransform: "uppercase", marginTop: 1 }}>{t.industry}</div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════
+          ABOUT / APPROACH
       ══════════════════════ */}
       <section id="faq" style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
@@ -1658,3 +1657,4 @@ export default function App() {
     </div>
   );
 }
+
