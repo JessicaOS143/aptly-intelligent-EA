@@ -99,9 +99,9 @@ const SPRINTS = [
 ];
 
 const TESTIMONIALS = [
-  { quote: "Working with Aptly Intelligent has been transformative for my business. The organization skills and attention to detail are unmatched. I can finally focus on growing my business, knowing all the operations are in safe hands.", name: "Sarah B.", title: "Founder", industry: "Marketing Agency" },
-  { quote: "I struggled to keep up with my priorities until Jessica stepped in. Clear systems, managed follow-through, and seamless execution. My productivity and peace of mind have increased dramatically.",                               name: "Michael C.", title: "Managing Partner", industry: "Law Firm" },
-  { quote: "As a busy professional, I was overwhelmed trying to balance my career and personal life. Aptly Intelligent has been invaluable, helping with everything from meeting prep to travel planning. Highly recommend.",                name: "Jennifer T.", title: "VP of Operations", industry: "Technology" },
+  { quote: "Working with Aptly Intelligent has been transformative for my business. The organization skills and attention to detail are unmatched. I can finally focus on growing my business, knowing all the operations are in safe hands.", name: "Jennifer T.", title: "Founder", industry: "Marketing Agency" },
+  { quote: "I struggled to keep up with my priorities until Jessica stepped in. Clear systems, managed follow-through, and seamless execution. My productivity and peace of mind have increased dramatically.",                               name: "Terry M.", title: "Managing Partner", industry: "Law Firm" },
+  { quote: "As a busy professional, I was overwhelmed trying to balance my career and personal life. Aptly Intelligent has been invaluable, helping with everything from meeting prep to travel planning. Highly recommend.",                name: "Brian U.", title: "VP of Operations", industry: "Technology" },
 ];
 
 const PROCESS = [
