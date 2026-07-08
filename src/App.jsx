@@ -16,13 +16,13 @@ import { useState, useEffect, useRef } from "react";
    ─────────────────────────────────────────── */
 
 const NAV = [
-  { label: "About",        href: "#about"         },
-  { label: "Services",     href: "#services"      },
-  { label: "Partnerships", href: "#partnerships"  },
-  { label: "Sprints",      href: "#sprints"       },
-  { label: "Portfolio",   href: "#portfolio"     },
-  { label: "FAQ",          href: "#faq"           },
-  { label: "Contact",      href: "#contact"       },
+  { label: "About",        href: "#about"        },
+  { label: "Services",     href: "#services"     },
+  { label: "Partnerships", href: "#partnerships" },
+  { label: "Portfolio",    href: "#portfolio"    },
+  { label: "Sprints",      href: "#sprints"      },
+  { label: "FAQ",          href: "#faq"          },
+  { label: "Contact",      href: "#contact"      },
 ];
 
 const SERVICES = [
