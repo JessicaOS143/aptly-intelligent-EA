@@ -1211,8 +1211,11 @@ export default function App() {
                 outcome: "Protected executive time, reduced scheduling conflicts, and ensured leaders arrived prepared for every commitment regardless of complexity or location.",
                 tags: ["Executive Support","Travel","Calendars","Stakeholders"]
               },
-            ].map((p, i) => (
-              <Reveal key={i} delay={i * 50}>
+            ].map((p, i, arr) => {
+              const isLastAlone = !mobile && !tablet && arr.length % 3 === 1 && i === arr.length - 1;
+              return (
+              <div key={i} style={isLastAlone ? { gridColumn: "2" } : {}}>
+              <Reveal delay={i * 50}>
                 <div style={{ background: "#fff", border: "1px solid #dce4f0", padding: "28px 26px", height: "100%",
                   boxShadow: "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)",
                   transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s" }}
@@ -1240,13 +1243,16 @@ export default function App() {
                   </div>
                 </div>
               </Reveal>
-            ))}
+              </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ══════════════════════
           TESTIMONIALS
+      ══════════════════════ */}
       {/* ══════════════════════
           SPRINTS
       ══════════════════════ */}
