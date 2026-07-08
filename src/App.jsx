@@ -739,7 +739,7 @@ export default function App() {
 
           {/* Expertise chips */}
           <Reveal delay={110}>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 10px", marginBottom: 16 }}>
+            <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr 1fr" : tablet ? "repeat(4, 1fr)" : "repeat(5, 1fr)", gap: "10px", marginBottom: 16 }}>
               {EXPERTISE.map((tag, i) => (
                 <span key={i}
                   style={{
