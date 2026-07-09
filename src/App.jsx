@@ -27,16 +27,16 @@ const NAV = [
 
 const SERVICES = [
   { no: "01", title: "Executive & Admin Support",    tag: "Core",
-     line: "Senior leaders shouldn't manage their own schedules. Reclaim the hours spent on inbox, calendar, and administrative coordination — and redirect them to the work only you can do.",
+     line: "Senior leaders shouldn't manage their own schedules. Reclaim the hours spent on inbox, calendar, and administrative coordination, and redirect them to the work only you can do.",
      items: ["Inbox and calendar architecture","Priority and decision filtering","Meeting preparation and follow-ups","Executive task orchestration"] },
   { no: "02", title: "Executive Life Management",     tag: "Core",
      line: "High-performance leadership requires protecting your energy outside the office. Personal logistics, travel, and the administrative details that quietly consume executive bandwidth are handled completely and discreetly.",
      items: ["Travel and logistics coordination","Expense tracking and organization","Research and briefing preparation","Personal administrative management"] },
   { no: "03", title: "Operations and Project Management", tag: "Core",
-     line: "Most operational delays come from unclear ownership and poor follow-through. Projects get structured, dependencies get tracked, and momentum is maintained — even across complex, multi-team environments.",
+     line: "Most operational delays come from unclear ownership and poor follow-through. Projects get structured, dependencies get tracked, and momentum is maintained, even across complex, multi-team environments.",
      items: ["SOP creation and process cleanup","Team coordination and follow-through","Workflow support across initiatives","Tool optimization and dashboards"] },
   { no: "04", title: "Systems and Organization",     tag: "Core",
-     line: "Scaling organizations break on missing infrastructure. SOPs, operating systems, and organizational frameworks get built once and create lasting leverage — so growth stops depending on heroics.",
+     line: "Scaling organizations break on missing infrastructure. SOPs, operating systems, and organizational frameworks get built once and create lasting leverage, so growth stops depending on heroics.",
      items: ["Notion, Google Workspace, Slack, Airtable","Dashboards and operating documents","Information flow organization","Ownership and accountability clarity"] },
   { no: "05", title: "AI-Native Workflows",           tag: "Core",
      line: "The gap between a team of 5 and a team of 15 can be closed with the right workflows. AI-native systems are designed and deployed to increase output, reduce manual effort, and scale execution without adding headcount.",
@@ -71,14 +71,14 @@ const BEFORE_AFTER = {
 
 const PLANS = [
   { label: "Foundation", hours: "Up to 20 Hours / Month", price: "$1,500+/month",
-    best: "For founders and operators at an inflection point — when the administrative weight of running the business is starting to cost you strategic time. Best when you need dependable, senior-level support without a full-time hire.",
+    best: "For founders and operators at an inflection point. When the administrative weight of running the business is starting to cost you strategic time. Best when you need dependable, senior-level support without a full-time hire.",
     features: ["Calendar and meeting management","Inbox organization and follow-up","Travel coordination","Expense tracking and reporting","Document preparation","Weekly executive touchpoint"] },
   { label: "Growth", hours: "Up to 35 Hours / Month", price: "$2,700+/month",
     best: "For executives managing multiple priorities, vendors, and initiatives simultaneously. Best when coordination gaps and follow-through failures are slowing execution across the organization.",
     features: ["Everything in Foundation","Project coordination","Vendor and stakeholder management","Meeting agendas and action tracking","Research and reporting","Process documentation"],
     popular: true },
   { label: "Executive", hours: "Up to 50 Hours / Month", price: "$4,500+/month",
-    best: "For senior leaders who need more than execution — they need a trusted operational partner who can anticipate, structure, and lead. Best when operational complexity has outpaced current infrastructure.",
+    best: "For senior leaders who need more than execution. They need a trusted operational partner who can anticipate, structure, and lead. Best when operational complexity has outpaced current infrastructure.",
     features: ["Everything in Growth","Strategic project support","Executive communications","Cross-functional coordination","Event and offsite planning","Priority management and escalation support"] },
   { label: "Executive Access", hours: "Dedicated Capacity", price: "Custom Engagement",
     best: "For organizations requiring dedicated operational leadership across multiple workstreams, teams, or transformation initiatives. Best when execution demands full strategic partnership.",
@@ -99,7 +99,7 @@ const SPRINTS = [
 ];
 
 const TESTIMONIALS = [
-  { quote: "What stood out immediately was the level of judgment. Jessica doesn't wait to be told what to do — she anticipates, structures, and executes. My calendar, communications, and priorities are handled with a level of discretion I didn't expect was possible outside of a senior hire.", name: "Jennifer T.", title: "Founder", industry: "Marketing Agency" },
+  { quote: "What stood out immediately was the level of judgment. Jessica doesn't wait to be told what to do. She anticipates, structures, and executes. My calendar, communications, and priorities are handled with a level of discretion I didn't expect was possible outside of a senior hire.", name: "Jennifer T.", title: "Founder", industry: "Marketing Agency" },
   { quote: "We brought Jessica in during a period of significant operational strain. Within weeks, the noise reduced substantially. Stakeholders were aligned, deliverables were moving, and I had clarity on what actually required my attention. That kind of operational calm is rare.", name: "Terry M.", title: "Managing Partner", industry: "Real Estate Investment" },
   { quote: "The difference between task execution and operational thinking is significant. Jessica operates at the latter. She built systems that scaled with us, flagged issues before they became problems, and maintained the kind of quiet follow-through that keeps a leadership team running smoothly.", name: "Brian", title: "Principal", industry: "Luxury Services" },
 ];
@@ -115,19 +115,19 @@ const FIT_YES = ["Are a founder or senior leader","Want a thinking partner, not 
 const FIT_NO  = ["Want hourly or task-only support","Need constant direction","Are shopping for the lowest-cost option"];
 
 const FAQS = [
-  { q: "How is this structured — hourly or retainer?",           a: "Engagements are structured as monthly partnerships or focused project sprints, not hourly arrangements. This enables proactive, judgment-based support rather than time-tracked task completion." },
+  { q: "How is this structured: hourly or retainer?",           a: "Engagements are structured as monthly partnerships or focused project sprints, not hourly arrangements. This enables proactive, judgment-based support rather than time-tracked task completion." },
   { q: "Why not hire a full-time executive assistant?",          a: "A full-time hire carries salary, benefits, onboarding time, and ongoing management overhead. Aptly provides senior-level executive operations partnership at a fraction of that cost, with no HR complexity and the flexibility to scale with your needs." },
-  { q: "What makes Aptly different from a virtual assistant?",   a: "Virtual assistants complete tasks. Aptly provides executive operations leadership — strategic thinking, systems design, project management, and proactive follow-through. The work is judgment-based, confidential, and aligned to your business priorities, not a task queue." },
+  { q: "What makes Aptly different from a virtual assistant?",   a: "Virtual assistants complete tasks. Aptly provides executive operations leadership: strategic thinking, systems design, project management, and proactive follow-through. The work is judgment-based, confidential, and aligned to your business priorities, not a task queue." },
   { q: "What systems and platforms do you work in?",             a: "Notion, Google Workspace, Microsoft 365, Slack, Airtable, HubSpot, Asana, Monday.com, Zoom, and AI tools including Claude, ChatGPT, and n8n. If your stack isn't listed, it is likely familiar or quickly learnable." },
-  { q: "Can you build operational systems and workflows?",        a: "Yes — this is a core strength. Engagements regularly include building SOPs, creating dashboards, implementing project management frameworks, and deploying AI-assisted workflows that scale with the organization." },
+  { q: "Can you build operational systems and workflows?",        a: "Yes and this is a core strength. Engagements regularly include building SOPs, creating dashboards, implementing project management frameworks, and deploying AI-assisted workflows that scale with the organization." },
   { q: "Do you provide project management support?",             a: "Yes. Project management spans planning, stakeholder coordination, timeline management, and cross-functional follow-through. PMP-certified with experience leading complex, multi-team initiatives." },
-  { q: "Can you work alongside my existing team?",               a: "Yes. Most engagements operate alongside existing staff, contractors, and vendors. The focus is filling gaps, improving coordination, and strengthening execution — not replacing team members." },
+  { q: "Can you work alongside my existing team?",               a: "Yes. Most engagements operate alongside existing staff, contractors, and vendors. The focus is filling gaps, improving coordination, and strengthening execution, not replacing team members." },
   { q: "Do you offer Notary or Apostille services?",             a: "Yes. As a certified Georgia Notary, document notarization and Apostille coordination are available for business contracts, real estate documents, power of attorney, corporate filings, and international use." },
   { q: "Can I start with a sprint before committing to a partnership?", a: "Yes. Sprints are a focused, defined-scope engagement ideal for addressing a specific initiative, transition, or operational challenge without a longer-term commitment." },
   { q: "What are your availability and response hours?",          a: "Support is available as early as 5am EST and extends to accommodate clients across time zones. Availability is structured during the engagement kickoff to align with your schedule and priorities." },
   { q: "What is the minimum engagement length?",                  a: "Monthly partnerships require a 3-month minimum. Sprint engagements are project-based with a defined scope and timeline agreed upon at the start." },
   { q: "How selective are engagements?",                          a: "Partnerships are capacity-limited by design. Every engagement receives full attention, which means new partnerships are accepted selectively and with clear alignment on fit, scope, and timing." },
-  { q: "Why is there a form before booking a call?",              a: "The Discovery Form ensures any initial conversation is focused and substantive. It allows a review of your situation in advance so the call leads directly to clarity — not introductions." },
+  { q: "Why is there a form before booking a call?",              a: "The Discovery Form ensures any initial conversation is focused and substantive. It allows a review of your situation in advance so the call leads directly to clarity, not introductions." },
 ];
 
 const IMG = {
@@ -592,11 +592,11 @@ export default function App() {
           </h1>
 
           <p style={{ fontSize: mobile ? 15 : 17, lineHeight: 1.78, color: "rgba(255,255,255,0.82)", marginBottom: 22, maxWidth: 520 }}>
-            The right operational partner recovers executive capacity, removes bottlenecks, and builds the systems that let leaders focus on growth — without the overhead of a full-time hire.
+            The right operational partner recovers executive capacity, removes bottlenecks, and builds the systems that let leaders focus on growth, without the overhead of a full-time hire.
           </p>
 
           <div style={{ marginBottom: 32, display: "flex", flexDirection: "column", gap: 10 }}>
-            {["Recover 10–20 executive hours every week","Increase leadership capacity","Accelerate strategic initiatives","Build scalable operational systems"].map((item, i) => (
+            {["Recover 10 to 20 executive hours every week","Increase leadership capacity","Accelerate strategic initiatives","Build scalable operational systems"].map((item, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <div style={{ width: 5, height: 5, borderRadius: "50%", background: "rgba(255,255,255,0.65)", flexShrink: 0 }} />
                 <span style={{ fontSize: 14.5, color: "rgba(255,255,255,0.75)", lineHeight: 1.5 }}>{item}</span>
@@ -649,7 +649,7 @@ export default function App() {
                 <br /><span style={{ color: "#4a6a9a" }}>One Standard of Execution.</span>
               </h2>
               <p style={{ fontSize: mobile ? 15 : 17, lineHeight: 1.82, color: "#4e607a", maxWidth: 720, marginBottom: 0 }}>
-                From global media companies to Fortune 500 beauty brands to high-growth technology firms — the environments have varied, but the mandate has always been the same: make leadership more effective.
+                From global media companies to Fortune 500 beauty brands to high-growth technology firms. The environments have varied, but the mandate has always been the same: make leadership more effective.
               </p>
             </div>
           </Reveal>
@@ -860,7 +860,7 @@ Not Task Management.
               {/* Left — Approach copy */}
               <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
                 <p style={{ fontSize: 17, lineHeight: 1.82, color: "rgba(255,255,255,0.75)" }}>
-                  Traditional executive support waits to be directed. Aptly operates differently — anticipating needs, managing complexity before it reaches the executive, and building the operational infrastructure that allows leadership to move faster and with greater confidence.
+                  Traditional executive support waits to be directed. Aptly operates differently, anticipating needs, managing complexity before it reaches the executive, and building the operational infrastructure that allows leadership to move faster and with greater confidence.
                 </p>
                 <p style={{ fontSize: 15, lineHeight: 1.78, color: "rgba(255,255,255,0.48)" }}>
                   The distinction is between someone who completes tasks and someone who owns outcomes. Aptly is the latter.
@@ -1185,7 +1185,7 @@ Not Task Management.
               Selected Engagements
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.78, color: "#4e607a", maxWidth: 640, marginBottom: 48 }}>
-              Each engagement represents a real operational challenge — solved through judgment, systems thinking, and execution.
+              Each engagement represents a real operational challenge, solved through judgment, systems thinking, and execution.
             </p>
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(3, 1fr)", gap: 16 }}>
@@ -1203,7 +1203,7 @@ Not Task Management.
                 title: "Global Artist Operations Across 45+ NYFW Productions",
                 challenge: "Delivering consistent, high-quality backstage operations for MAC's Global Artists across 45 New York Fashion Week productions in one of fashion's most demanding environments.",
                 action: "Owned artist coordination, backstage logistics, scheduling, and production support from pre-show preparation through live execution across every production.",
-                outcome: "45+ NYFW productions executed without a single operational failure. Backstage consistency maintained across every show — protecting MAC's brand standards in one of fashion's most demanding environments.",
+                outcome: "45+ NYFW productions executed without a single operational failure. Backstage consistency maintained across every show, protecting MAC's brand standards in one of fashion's most demanding environments.",
                 tags: ["NYFW","Artist Coordination","Backstage Ops","Production","Events"]
               },
               {
@@ -1403,9 +1403,9 @@ Not Task Management.
             </Reveal>
             <Reveal delay={100}>
               <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-                {["What separates exceptional operational partners from capable assistants is judgment — the ability to read a situation, anticipate what comes next, and act with the kind of discretion that never requires direction.",
+                {["What separates exceptional operational partners from capable assistants is judgment: the ability to read a situation, anticipate what comes next, and act with the kind of discretion that never requires direction.",
                    "Jessica Ocasio Salters has spent fifteen years developing that judgment across media conglomerates, global luxury brands, healthcare technology organizations, and high-growth companies. The environments change. The standard of execution does not.",
-                   "Leaders who work with Aptly rarely describe the experience as ‘getting support.’ They describe it as having someone who thinks three steps ahead, reduces the operational noise before it reaches them, and builds the systems that allow them to lead at full capacity — without managing the people responsible for it.",
+                   "Leaders who work with Aptly rarely describe the experience as ‘getting support.’ They describe it as having someone who thinks three steps ahead, reduces the operational noise before it reaches them, and builds the systems that allow them to lead at full capacity, without managing the people responsible for it.",
                    "Calm under pressure. Precise under complexity. Trusted with the operational details that define whether a leader’s vision actually becomes execution."].map((p, i) => (
                   <p key={i} style={{ fontSize: mobile ? 15 : 16.5, lineHeight: 1.88, color: i === 2 ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.62)" }}>{p}</p>
                 ))}
