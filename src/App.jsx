@@ -253,7 +253,7 @@ export default function App() {
         .disp { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; }
         ::selection { background: rgba(74,106,154,0.18); }
         ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-thumb { background: rgba(74,106,154,0.4); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: rgba(74,106,154,0.4); }
 
         /* FOCUS */
         :focus { outline: none; }
@@ -900,7 +900,7 @@ Not Task Management.
           <Reveal delay={80}>
             <div style={{ display: "grid", gridTemplateColumns: desktop ? "1fr 1fr" : "1fr", gap: mobile ? 24 : 32, alignItems: "stretch", maxWidth: 900, margin: "0 auto" }}>
               {/* Sliders */}
-              <div style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.14)", padding: "40px 36px", boxShadow: "0 4px 20px rgba(0,0,0,0.18)", display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 32 }}>
+              <div style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", padding: "40px 36px", boxShadow: "0 4px 20px rgba(0,0,0,0.18)", display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 32 }}>
                 {/* Hours slider */}
                 <div>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
@@ -936,7 +936,7 @@ Not Task Management.
                     {['$', monthlyCost.toLocaleString()].join('')}
                   </div>
                 </div>
-                <div style={{ background: "rgba(74,106,154,0.28)", border: "1px solid rgba(74,106,154,0.45)", padding: "32px 32px", flex: 1, boxShadow: "0 3px 16px rgba(0,0,0,0.16)" }}>
+                <div style={{ background: "rgba(74,106,154,0.28)", border: "1px solid rgba(74,106,154,0.45)", padding: "32px 32px", flex: 1, boxShadow: "0 3px 16px rgba(0,0,0,0.12)" }}>
                   <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 8 }}>Annual cost of distraction</div>
                   <div className="disp" style={{ fontSize: 44, color: "#fff", letterSpacing: "-0.02em" }}>
                     {['$', annualCost.toLocaleString()].join('')}
