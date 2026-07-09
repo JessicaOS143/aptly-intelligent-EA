@@ -19,7 +19,7 @@ const NAV = [
   { label: "About",        href: "#about"        },
   { label: "Services",     href: "#services"     },
   { label: "Partnerships", href: "#partnerships" },
-  { label: "Portfolio",    href: "#portfolio"    },
+  { label: "Case Studies", href: "#portfolio"    },
   { label: "Sprints",      href: "#sprints"      },
   { label: "FAQ",          href: "#faq"          },
   { label: "Contact",      href: "#contact"      },
@@ -27,19 +27,19 @@ const NAV = [
 
 const SERVICES = [
   { no: "01", title: "Executive & Admin Support",    tag: "Core",
-     line: "I take the operational weight off your plate so your hours go to product, fundraising, and the decisions only you can make.",
+     line: "Senior leaders shouldn't manage their own schedules. Reclaim the hours spent on inbox, calendar, and administrative coordination — and redirect them to the work only you can do.",
      items: ["Inbox and calendar architecture","Priority and decision filtering","Meeting preparation and follow-ups","Executive task orchestration"] },
   { no: "02", title: "Lifestyle Assistance",          tag: "Core",
-     line: "Executive life doesn't stop at the office. I handle the personal logistics that drain time and mental bandwidth so you don't have to.",
+     line: "High-performance leadership requires protecting your energy. Personal logistics, travel, and the details that consume executive bandwidth are handled completely, so you stay focused on what matters.",
      items: ["Travel and logistics coordination","Expense tracking and organization","Research and briefing preparation","Day-to-day administrative needs"] },
   { no: "03", title: "Operations and Project Management", tag: "Core",
-     line: "Ideas become shipped outcomes. I own the plan, drive the cross-functional moving parts, and keep momentum when things get noisy.",
+     line: "Most operational delays come from unclear ownership and poor follow-through. Projects get structured, dependencies get tracked, and momentum is maintained — even across complex, multi-team environments.",
      items: ["SOP creation and process cleanup","Team coordination and follow-through","Workflow support across initiatives","Tool optimization and dashboards"] },
   { no: "04", title: "Systems and Organization",     tag: "Core",
-     line: "The infrastructure a growing company needs but rarely has time to build, set up once so the business runs without you in every loop.",
+     line: "Scaling organizations break on missing infrastructure. SOPs, operating systems, and organizational frameworks get built once and create lasting leverage — so growth stops depending on heroics.",
      items: ["Notion, Google Workspace, Slack, Airtable","Dashboards and operating documents","Information flow organization","Ownership and accountability clarity"] },
   { no: "05", title: "AI-Native Workflows",           tag: "Core",
-     line: "AI increases velocity. I build the automations that let a small team operate like a much larger one. You stay in control.",
+     line: "The gap between a team of 5 and a team of 15 can be closed with the right workflows. AI-native systems are designed and deployed to increase output, reduce manual effort, and scale execution without adding headcount.",
      items: ["AI-assisted inbox triage","Intelligent meeting summaries","SOP generation and documentation","AI copilots inside Notion, Google, Slack"] },
   { no: "06", title: "Notary and Apostille",          tag: "Specialized", geo: "Georgia",
      line: "Certified Georgia Notary providing secure document execution and Apostille coordination for domestic and international use.",
@@ -99,9 +99,9 @@ const SPRINTS = [
 ];
 
 const TESTIMONIALS = [
-  { quote: "Working with Aptly Intelligent has been transformative for my business. The organization skills and attention to detail are unmatched. I can finally focus on growing my business, knowing all the operations are in safe hands.", name: "Jennifer T.", title: "Founder", industry: "Marketing Agency" },
-  { quote: "I struggled to keep up with my priorities until Jessica stepped in. Clear systems, managed follow-through, and seamless execution. My productivity and peace of mind have increased dramatically.",                               name: "Terry M.", title: "Managing Partner", industry: "Law Firm" },
-  { quote: "As a busy professional, I was overwhelmed trying to balance my career and personal life. Aptly Intelligent has been invaluable, helping with everything from meeting prep to travel planning. Highly recommend.",                name: "Brian U.", title: "VP of Operations", industry: "Technology" },
+  { quote: "What stood out immediately was the level of judgment. Jessica doesn't wait to be told what to do — she anticipates, structures, and executes. My calendar, communications, and priorities are handled with a level of discretion I didn't expect was possible outside of a senior hire.", name: "Jennifer T.", title: "Founder", industry: "Marketing Agency" },
+  { quote: "We brought Jessica in during a period of significant operational strain. Within weeks, the noise reduced substantially. Stakeholders were aligned, deliverables were moving, and I had clarity on what actually required my attention. That kind of operational calm is rare.", name: "Terry M.", title: "Managing Partner", industry: "Law Firm" },
+  { quote: "The difference between task execution and operational thinking is significant. Jessica operates at the latter. She built systems that scaled with us, flagged issues before they became problems, and maintained the kind of quiet follow-through that keeps a leadership team running smoothly.", name: "Brian U.", title: "VP of Operations", industry: "Technology" },
 ];
 
 const PROCESS = [
@@ -197,6 +197,7 @@ export default function App() {
   const [calcRate,    setCalcRate]    = useState(400);
   const [form,        setForm]        = useState({ name:"", email:"", role:"", company:"", need:"", friction:"", outcome:"", timeline:"", agreed:false });
   const [formSent,    setFormSent]    = useState(false);
+  const [activeNav,   setActiveNav]   = useState("");
 
   const w       = useWidth();
   const prog    = useProgress();
@@ -210,6 +211,21 @@ export default function App() {
     return () => window.removeEventListener("scroll", h);
   }, []);
 
+  useEffect(() => {
+    const sectionIds = ["#about","#services","#partnerships","#portfolio","#sprints","#faq","#contact"];
+    const elements = sectionIds.map(id => document.querySelector(id)).filter(Boolean);
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setActiveNav("#" + entry.target.id);
+        });
+      },
+      { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
+    );
+    elements.forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
   useEffect(() => { if (desktop) setMenu(false); }, [desktop]);
 
   const go = (href) => {
@@ -218,7 +234,7 @@ export default function App() {
   };
 
   const gutter = mobile ? "20px" : tablet ? "40px" : "max(40px, 7vw)";
-  const pad    = mobile ? "52px" : tablet ? "64px" : "80px";
+  const pad    = mobile ? "64px" : tablet ? "80px" : "100px";
   const mw     = 1180;
 
   const monthlyCost = Math.round(calcHours * calcRate * 52 / 12);
@@ -484,7 +500,20 @@ export default function App() {
 
           {desktop && (
             <div style={{ display: "flex", gap: 28, alignItems: "center" }}>
-              {NAV.map(l => <button key={l.label} className={`nl${scrolled ? " scrolled" : ""}`} onClick={() => go(l.href)}>{l.label}</button>)}
+              {NAV.map(l => (
+                <button key={l.label}
+                  className={`nl${scrolled ? " scrolled" : ""}${activeNav === l.href ? " nl-active" : ""}`}
+                  onClick={() => go(l.href)}
+                  style={{
+                    ...(activeNav === l.href && scrolled ? { color: "#1e3054", fontWeight: 600 } : {}),
+                    ...(activeNav === l.href && !scrolled ? { color: "#fff", opacity: 1 } : {}),
+                  }}>
+                  {l.label}
+                  {activeNav === l.href && (
+                    <span style={{ display: "block", height: 1.5, background: scrolled ? "#1e3054" : "rgba(255,255,255,0.7)", marginTop: 3, borderRadius: 1 }} />
+                  )}
+                </button>
+              ))}
             </div>
           )}
 
@@ -586,7 +615,7 @@ export default function App() {
           </div>
 
           <div style={{ marginTop: 36, paddingTop: 24, borderTop: "1px solid rgba(255,255,255,0.15)", display: "flex", gap: 24, flexWrap: "wrap" }}>
-            {["PMP Certified","Master of Public Administration","15+ Years Supporting Executive Leadership"].map(t => (
+            {["PMP Certified","MPA · Emergency Management","15+ Years · Executive Operations"].map(t => (
               <span key={t} style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", display: "flex", alignItems: "center", gap: 7 }}>
                 <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 10 }}>+</span>{t}
               </span>
@@ -739,7 +768,7 @@ export default function App() {
 
           {/* Expertise chips */}
           <Reveal delay={110}>
-            <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr 1fr" : tablet ? "repeat(4, 1fr)" : "repeat(5, 1fr)", gap: "10px", marginBottom: 16 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", justifyContent: "center", marginBottom: 16 }}>
               {EXPERTISE.map((tag, i) => (
                 <span key={i}
                   style={{
@@ -817,7 +846,8 @@ export default function App() {
             <div style={{ marginBottom: 52 }}>
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 16 }}>The Approach</div>
               <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,52px)", color: "#fff", maxWidth: 640 }}>
-                Not task-based. Not hourly.
+                Executive infrastructure.
+Not task management.
               </h2>
             </div>
           </Reveal>
@@ -935,7 +965,7 @@ export default function App() {
               Executive Advisory Services
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.75, color: "#4e607a", maxWidth: 500, marginBottom: 48 }}>
-              Strategic operations and executive partnership, structured around your priorities.
+              Engagements are structured around your capacity needs, not hourly billing.
             </p>
           </Reveal>
 
@@ -1145,12 +1175,12 @@ export default function App() {
       <section id="portfolio" style={{ background: "#fff", padding: `${pad} ${gutter}` }}>
         <div style={{ maxWidth: mw, margin: "0 auto" }}>
           <Reveal>
-            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>Selected Work</div>
+            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>Case Studies</div>
             <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054", marginBottom: 14 }}>
-              Operational Leadership in Practice
+              Selected Engagements
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.78, color: "#4e607a", maxWidth: 640, marginBottom: 48 }}>
-              Examples of the operational leadership, executive support, and strategic coordination that help organizations move faster and leaders stay focused on what matters most.
+              Each engagement represents a real operational challenge — solved through judgment, systems thinking, and execution.
             </p>
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(3, 1fr)", gap: 16 }}>
@@ -1363,14 +1393,15 @@ export default function App() {
             <Reveal>
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 20 }}>About Jessica</div>
               <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#fff" }}>
-                The person founders quietly rely on
+                Operational leadership for the moments that matter most
               </h2>
             </Reveal>
             <Reveal delay={100}>
               <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-                {["There is a particular kind of overwhelm that arrives with growth. The systems that worked six months ago stop working. Priorities pile up. Important things start slipping.",
-                   "For more than fifteen years I have helped founders and executives move from that overwhelm to a place of clarity, structure, and real momentum.",
-                   "What I love most is the trust. Being the person a leader can hand the hard, unglamorous, important things to, knowing they will get done."].map((p, i) => (
+                {["Most executive challenges are not strategic — they are operational. Priorities without systems. Decisions without infrastructure. Capable teams without coordination. The gap between where a leader wants to go and how quickly the organization gets there is almost always an execution problem.",
+                   "Aptly Intelligent & Co. was built to close that gap. Not by taking on tasks, but by establishing the operational infrastructure, executive rhythms, and coordination systems that allow leadership to operate at full capacity.",
+                   "Fifteen years inside media organizations, global consumer brands, healthcare technology, and high-growth companies has developed something that cannot be taught — the ability to enter a complex environment, understand what is breaking, and build systems that hold.",
+                   "The leaders who engage Aptly are not looking for support. They are looking for an operational partner who can think ahead, act with discretion, and protect their most important resource: focused executive time."].map((p, i) => (
                   <p key={i} style={{ fontSize: mobile ? 15 : 16.5, lineHeight: 1.88, color: i === 2 ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.62)" }}>{p}</p>
                 ))}
               </div>
@@ -1458,13 +1489,13 @@ export default function App() {
             {!formSent && <Reveal>
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 20 }}>Executive Discovery Form™</div>
               <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,46px)", color: "#fff", marginBottom: 20 }}>
-                The First Step Toward Operational Clarity
+                Begin the Conversation
               </h2>
               <p style={{ fontSize: 16, lineHeight: 1.78, color: "rgba(255,255,255,0.62)", marginBottom: 16 }}>
-                The Executive Discovery Form is designed to identify operational bottlenecks, leadership capacity constraints, project challenges, and support opportunities.
+                The Executive Discovery Form is a focused intake that helps identify where operational support can have the greatest immediate impact on your leadership capacity.
               </p>
               <p style={{ fontSize: 15, lineHeight: 1.75, color: "rgba(255,255,255,0.48)", marginBottom: 32 }}>
-                This is not a generic contact form. It is the first step in determining whether Aptly Intelligent & Co. is the right operational partner for your organization.
+                Engagements are selective. Completing this form is the first step in determining whether this is the right fit.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 {[["Remote, US Based","By appointment only"],["jessica@aptlyintelligent.com","M-F 9am to 6pm EST"]].map(([a,b], i) => (
@@ -1639,7 +1670,7 @@ export default function App() {
                     }
                   }}
                     style={{ width: "100%", background: "rgba(255,255,255,0.95)", color: "#1e3054", justifyContent: "center" }}>
-                    Submit Your Executive Discovery Form
+                    Submit Your Discovery Form
                   </button>
                 </div>
               )}
@@ -1649,17 +1680,52 @@ export default function App() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer style={{ background: "#141e36", borderTop: "1px solid rgba(255,255,255,0.06)", padding: `22px ${gutter}` }}>
-        <div style={{ maxWidth: mw, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
-          <div>
-            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 15, color: "rgba(255,255,255,0.45)", fontWeight: 500 }}>Aptly Intelligent and Co.</div>
-            <div style={{ fontSize: 11, color: "rgba(255,255,255,0.22)", marginTop: 2 }}>Jessica Ocasio Salters, Principal</div>
+      <footer style={{ background: "#141e36", borderTop: "1px solid rgba(255,255,255,0.08)", padding: `48px ${gutter} 32px` }}>
+        <div style={{ maxWidth: mw, margin: "0 auto" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 40, marginBottom: 40, paddingBottom: 32, borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+            <div style={{ maxWidth: 300 }}>
+              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, color: "rgba(255,255,255,0.82)", fontWeight: 500, letterSpacing: "0.02em", marginBottom: 10 }}>
+                Aptly Intelligent & Co.
+              </div>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.75 }}>
+                Executive operations and advisory for founders, executives, and leadership teams who have outgrown traditional executive support.
+              </div>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(255,255,255,0.28)", marginBottom: 4 }}>Navigate</div>
+              {[["About","#about"],["Services","#services"],["Case Studies","#portfolio"],["FAQ","#faq"],["Contact","#contact"]].map(([label, href]) => (
+                <a key={label} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color 0.2s" }}
+                  onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.82)"}
+                  onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.45)"}>
+                  {label}
+                </a>
+              ))}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(255,255,255,0.28)", marginBottom: 4 }}>Connect</div>
+              <a href="mailto:jessica@aptlyintelligent.com" style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.82)"}
+                onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.45)"}>
+                jessica@aptlyintelligent.com
+              </a>
+              <a href="https://www.linkedin.com/in/jessica-ocasio/" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.82)"}
+                onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.45)"}>
+                LinkedIn ↗
+              </a>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.28)", marginTop: 2 }}>Remote · US Based</div>
+            </div>
           </div>
-          {!mobile && <span style={{ fontSize: 11, color: "rgba(255,255,255,0.22)", letterSpacing: "0.06em" }}>Executive Operations · Notary · Digital Solutions</span>}
-          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.22)" }}>{new Date().getFullYear()}</span>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
+            <div style={{ fontSize: 11, color: "rgba(255,255,255,0.2)", letterSpacing: "0.04em" }}>
+              © {new Date().getFullYear()} Aptly Intelligent & Co. All rights reserved.
+            </div>
+            <div style={{ fontSize: 11, color: "rgba(255,255,255,0.16)", letterSpacing: "0.04em" }}>
+              aptlyintelligent.com
+            </div>
+          </div>
         </div>
       </footer>
-
     </div>
   );
 }
