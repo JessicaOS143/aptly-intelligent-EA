@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 /* ═══════════════════════════════════════════
    APTLY INTELLIGENT & CO.
-   Jessica Ocasio Salters, Principal
+   Jessica Ocasio Salters · Principal
    ═══════════════════════════════════════════ */
 
 /* ─── PALETTE (matched to Per Executive) ───
@@ -29,9 +29,9 @@ const SERVICES = [
   { no: "01", title: "Executive & Admin Support",    tag: "Core",
      line: "Senior leaders shouldn't manage their own schedules. Reclaim the hours spent on inbox, calendar, and administrative coordination — and redirect them to the work only you can do.",
      items: ["Inbox and calendar architecture","Priority and decision filtering","Meeting preparation and follow-ups","Executive task orchestration"] },
-  { no: "02", title: "Lifestyle Assistance",          tag: "Core",
-     line: "High-performance leadership requires protecting your energy. Personal logistics, travel, and the details that consume executive bandwidth are handled completely, so you stay focused on what matters.",
-     items: ["Travel and logistics coordination","Expense tracking and organization","Research and briefing preparation","Day-to-day administrative needs"] },
+  { no: "02", title: "Executive Life Management",     tag: "Core",
+     line: "High-performance leadership requires protecting your energy outside the office. Personal logistics, travel, and the administrative details that quietly consume executive bandwidth are handled completely and discreetly.",
+     items: ["Travel and logistics coordination","Expense tracking and organization","Research and briefing preparation","Personal administrative management"] },
   { no: "03", title: "Operations and Project Management", tag: "Core",
      line: "Most operational delays come from unclear ownership and poor follow-through. Projects get structured, dependencies get tracked, and momentum is maintained — even across complex, multi-team environments.",
      items: ["SOP creation and process cleanup","Team coordination and follow-through","Workflow support across initiatives","Tool optimization and dashboards"] },
@@ -71,17 +71,17 @@ const BEFORE_AFTER = {
 
 const PLANS = [
   { label: "Foundation", hours: "Up to 20 Hours / Month", price: "$1,500+/month",
-    best: "Ideal for founders and professionals ready to delegate operational weight and reclaim time for higher-leverage work.",
+    best: "For founders and operators at an inflection point — when the administrative weight of running the business is starting to cost you strategic time. Best when you need dependable, senior-level support without a full-time hire.",
     features: ["Calendar and meeting management","Inbox organization and follow-up","Travel coordination","Expense tracking and reporting","Document preparation","Weekly executive touchpoint"] },
   { label: "Growth", hours: "Up to 35 Hours / Month", price: "$2,700+/month",
-    best: "Designed for growing organizations managing multiple workstreams, vendors, and stakeholders simultaneously.",
+    best: "For executives managing multiple priorities, vendors, and initiatives simultaneously. Best when coordination gaps and follow-through failures are slowing execution across the organization.",
     features: ["Everything in Foundation","Project coordination","Vendor and stakeholder management","Meeting agendas and action tracking","Research and reporting","Process documentation"],
     popular: true },
   { label: "Executive", hours: "Up to 50 Hours / Month", price: "$4,500+/month",
-    best: "For senior leaders who need a trusted operational partner embedded in their business and aligned to executive priorities.",
+    best: "For senior leaders who need more than execution — they need a trusted operational partner who can anticipate, structure, and lead. Best when operational complexity has outpaced current infrastructure.",
     features: ["Everything in Growth","Strategic project support","Executive communications","Cross-functional coordination","Event and offsite planning","Priority management and escalation support"] },
   { label: "Executive Access", hours: "Dedicated Capacity", price: "Custom Engagement",
-    best: "For organizations with complex, high-stakes operational needs that require dedicated strategic partnership and full executive alignment.",
+    best: "For organizations requiring dedicated operational leadership across multiple workstreams, teams, or transformation initiatives. Best when execution demands full strategic partnership.",
     features: ["Dedicated monthly capacity","Expanded availability coverage","Multi-project coordination","Executive and personal support integration","High-priority response support","Custom engagement structure"],
     limited: true },
 ];
@@ -100,8 +100,8 @@ const SPRINTS = [
 
 const TESTIMONIALS = [
   { quote: "What stood out immediately was the level of judgment. Jessica doesn't wait to be told what to do — she anticipates, structures, and executes. My calendar, communications, and priorities are handled with a level of discretion I didn't expect was possible outside of a senior hire.", name: "Jennifer T.", title: "Founder", industry: "Marketing Agency" },
-  { quote: "We brought Jessica in during a period of significant operational strain. Within weeks, the noise reduced substantially. Stakeholders were aligned, deliverables were moving, and I had clarity on what actually required my attention. That kind of operational calm is rare.", name: "Terry M.", title: "Managing Partner", industry: "Law Firm" },
-  { quote: "The difference between task execution and operational thinking is significant. Jessica operates at the latter. She built systems that scaled with us, flagged issues before they became problems, and maintained the kind of quiet follow-through that keeps a leadership team running smoothly.", name: "Brian U.", title: "VP of Operations", industry: "Technology" },
+  { quote: "We brought Jessica in during a period of significant operational strain. Within weeks, the noise reduced substantially. Stakeholders were aligned, deliverables were moving, and I had clarity on what actually required my attention. That kind of operational calm is rare.", name: "Terry M.", title: "Managing Partner", industry: "Real Estate Investment" },
+  { quote: "The difference between task execution and operational thinking is significant. Jessica operates at the latter. She built systems that scaled with us, flagged issues before they became problems, and maintained the kind of quiet follow-through that keeps a leadership team running smoothly.", name: "Brian", title: "Principal", industry: "Luxury Services" },
 ];
 
 const PROCESS = [
@@ -115,20 +115,19 @@ const FIT_YES = ["Are a founder or senior leader","Want a thinking partner, not 
 const FIT_NO  = ["Want hourly or task-only support","Need constant direction","Are shopping for the lowest-cost option"];
 
 const FAQS = [
-  { q: "Are you hourly?",                                        a: "No. Support is structured around monthly partnerships or focused sprint engagements, not hourly tracking. This allows for proactive, judgment-based support rather than time-logged tasks." },
-  { q: "Why not hire a full-time executive assistant?",          a: "A full-time hire comes with salary, benefits, onboarding time, management overhead, and long-term commitment. Aptly Intelligent & Co. provides senior-level executive operations support at a fraction of that cost, with no overhead, no HR complexity, and the flexibility to scale as your needs change." },
-  { q: "What makes Aptly different from a virtual assistant?",   a: "A virtual assistant handles tasks. Aptly Intelligent & Co. provides executive operations partnership. That means strategic thinking, project leadership, systems design, and proactive support, not just task completion. The work is judgment-based, confidential, and aligned with your business priorities." },
-  { q: "What systems and platforms do you work in?",             a: "Notion, Google Workspace, Microsoft 365, Slack, Airtable, HubSpot, Asana, Monday.com, Zoom, and a range of AI tools including Claude, ChatGPT, and n8n. If you use something not listed, it is likely familiar or quickly learnable." },
-  { q: "Can you help build operational systems and workflows?",  a: "Yes. Designing and implementing operational systems is a core capability. This includes building SOPs, creating dashboards, structuring project management frameworks, and automating repetitive workflows using AI and no-code tools." },
-  { q: "Do you provide project management support?",             a: "Yes. Project management support spans planning, stakeholder coordination, timeline management, documentation, and cross-functional follow-through. PMP-certified and experienced across complex, multi-team initiatives." },
-  { q: "Can you work alongside my existing team?",               a: "Absolutely. Most engagements involve working alongside existing staff, contractors, and vendors. The focus is on filling gaps, improving coordination, and supporting team execution, not replacing existing team members." },
-  { q: "Do you use AI?",                                         a: "Yes. AI tools are integrated to accelerate execution, reduce manual workflow, and increase output quality. All AI use is supervised, intentional, and in service of better results for you." },
-  { q: "Do you offer Notary or Apostille services?",             a: "Yes. As a certified Georgia Notary, I provide document notarization and Apostille coordination for business contracts, real estate documents, power of attorney, corporate filings, and international documentation." },
-  { q: "Can I start with a sprint instead of a partnership?",    a: "Absolutely. Focused sprints are a great way to address a specific initiative or transition with a defined scope and timeline." },
-  { q: "Do you work early mornings or outside standard hours?",  a: "Yes. Support can begin as early as 5am EST for leaders who do their best thinking before the day gets loud. I also work with clients across time zones and can align availability to accommodate schedules outside standard business hours." },
-  { q: "Is there a minimum commitment?",                         a: "Monthly partnerships require a 3-month minimum commitment. Sprints are project-based with a defined scope and timeline." },
-  { q: "Why do I need to complete a form before booking a call?",a: "The form ensures our conversation is focused and productive. It allows me to review your situation in advance and come prepared with relevant insights." },
-  { q: "Are engagements capacity-limited?",                      a: "Yes. Partnerships are selective and capacity-limited to ensure every client receives full attention and quality support." },
+  { q: "How is this structured — hourly or retainer?",           a: "Engagements are structured as monthly partnerships or focused project sprints, not hourly arrangements. This enables proactive, judgment-based support rather than time-tracked task completion." },
+  { q: "Why not hire a full-time executive assistant?",          a: "A full-time hire carries salary, benefits, onboarding time, and ongoing management overhead. Aptly provides senior-level executive operations partnership at a fraction of that cost, with no HR complexity and the flexibility to scale with your needs." },
+  { q: "What makes Aptly different from a virtual assistant?",   a: "Virtual assistants complete tasks. Aptly provides executive operations leadership — strategic thinking, systems design, project management, and proactive follow-through. The work is judgment-based, confidential, and aligned to your business priorities, not a task queue." },
+  { q: "What systems and platforms do you work in?",             a: "Notion, Google Workspace, Microsoft 365, Slack, Airtable, HubSpot, Asana, Monday.com, Zoom, and AI tools including Claude, ChatGPT, and n8n. If your stack isn't listed, it is likely familiar or quickly learnable." },
+  { q: "Can you build operational systems and workflows?",        a: "Yes — this is a core strength. Engagements regularly include building SOPs, creating dashboards, implementing project management frameworks, and deploying AI-assisted workflows that scale with the organization." },
+  { q: "Do you provide project management support?",             a: "Yes. Project management spans planning, stakeholder coordination, timeline management, and cross-functional follow-through. PMP-certified with experience leading complex, multi-team initiatives." },
+  { q: "Can you work alongside my existing team?",               a: "Yes. Most engagements operate alongside existing staff, contractors, and vendors. The focus is filling gaps, improving coordination, and strengthening execution — not replacing team members." },
+  { q: "Do you offer Notary or Apostille services?",             a: "Yes. As a certified Georgia Notary, document notarization and Apostille coordination are available for business contracts, real estate documents, power of attorney, corporate filings, and international use." },
+  { q: "Can I start with a sprint before committing to a partnership?", a: "Yes. Sprints are a focused, defined-scope engagement ideal for addressing a specific initiative, transition, or operational challenge without a longer-term commitment." },
+  { q: "What are your availability and response hours?",          a: "Support is available as early as 5am EST and extends to accommodate clients across time zones. Availability is structured during the engagement kickoff to align with your schedule and priorities." },
+  { q: "What is the minimum engagement length?",                  a: "Monthly partnerships require a 3-month minimum. Sprint engagements are project-based with a defined scope and timeline agreed upon at the start." },
+  { q: "How selective are engagements?",                          a: "Partnerships are capacity-limited by design. Every engagement receives full attention, which means new partnerships are accepted selectively and with clear alignment on fit, scope, and timing." },
+  { q: "Why is there a form before booking a call?",              a: "The Discovery Form ensures any initial conversation is focused and substantive. It allows a review of your situation in advance so the call leads directly to clarity — not introductions." },
 ];
 
 const IMG = {
@@ -646,11 +645,11 @@ export default function App() {
                 fontSize: mobile ? "clamp(30px,9vw,44px)" : "clamp(34px,4.2vw,58px)",
                 color: "#1e3054", marginBottom: 24, lineHeight: 1.08, maxWidth: 780,
               }}>
-                Trusted by Leaders Across Industries<br />
-                <span style={{ color: "#4a6a9a" }}>for 15+ Years</span>
+                Fifteen Years. Four Industries.
+                <br /><span style={{ color: "#4a6a9a" }}>One Standard of Execution.</span>
               </h2>
               <p style={{ fontSize: mobile ? 15 : 17, lineHeight: 1.82, color: "#4e607a", maxWidth: 720, marginBottom: 0 }}>
-                For more than 15 years, Jessica has supported executives, leadership teams, and fast-moving organizations across beauty, media, technology, finance, insurance, events, consulting, and emerging industries. Her work spans global brands, complex operations, strategic initiatives, and high-growth environments where execution matters.
+                From global media companies to Fortune 500 beauty brands to high-growth technology firms — the environments have varied, but the mandate has always been the same: make leadership more effective.
               </p>
             </div>
           </Reveal>
@@ -685,23 +684,26 @@ export default function App() {
                 },
               ].map((co, i) => (
                 <div key={i} style={{
-                  background: "#f8fafc", border: "1px solid #dce4f0",
-                  padding: "28px 26px",
-                  boxShadow: "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)",
-                  transition: "transform 0.25s, box-shadow 0.25s",
+                  background: "#fff", border: "1px solid #dce4f0",
+                  padding: "28px 24px 24px",
+                  boxShadow: "0 1px 4px rgba(30,48,84,0.05)",
+                  transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s",
                   display: "flex", flexDirection: "column", gap: 0,
                 }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.transform = "translateY(-4px)";
-                    e.currentTarget.style.boxShadow = "0 10px 32px rgba(30,48,84,0.13), 0 2px 8px rgba(30,48,84,0.07), 0 0 0 1px rgba(74,106,154,0.18)";
+                    e.currentTarget.style.transform = "translateY(-3px)";
+                    e.currentTarget.style.boxShadow = "0 8px 28px rgba(30,48,84,0.11), 0 1px 4px rgba(30,48,84,0.06)";
+                    e.currentTarget.style.borderColor = "rgba(74,106,154,0.35)";
                   }}
                   onMouseLeave={e => {
                     e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow = "0 2px 10px rgba(30,48,84,0.07), 0 1px 3px rgba(30,48,84,0.04)";
+                    e.currentTarget.style.boxShadow = "0 1px 4px rgba(30,48,84,0.05)";
+                    e.currentTarget.style.borderColor = "#dce4f0";
                   }}>
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 10 }}>{co.badge}</div>
-                  <div className="disp" style={{ fontSize: mobile ? 17 : 19, fontWeight: 600, color: "#1e3054", marginBottom: 14, lineHeight: 1.2 }}>{co.org}</div>
-                  <p style={{ fontSize: 13.5, lineHeight: 1.72, color: "#4e607a", flex: 1 }}>{co.desc}</p>
+                  <div style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 8 }}>{co.badge}</div>
+                  <div className="disp" style={{ fontSize: mobile ? 19 : 22, color: "#1e3054", marginBottom: 12, lineHeight: 1.1, letterSpacing: "-0.01em" }}>{co.org}</div>
+                  <div style={{ width: 24, height: 1, background: "#dce4f0", marginBottom: 14 }} />
+                  <p style={{ fontSize: 13, lineHeight: 1.75, color: "#5a7090", flex: 1 }}>{co.desc}</p>
                 </div>
               ))}
             </div>
@@ -846,8 +848,8 @@ export default function App() {
             <div style={{ marginBottom: 52 }}>
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 16 }}>The Approach</div>
               <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,52px)", color: "#fff", maxWidth: 640 }}>
-                Executive infrastructure.
-Not task management.
+                Executive Infrastructure.
+Not Task Management.
               </h2>
             </div>
           </Reveal>
@@ -858,10 +860,10 @@ Not task management.
               {/* Left — Approach copy */}
               <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
                 <p style={{ fontSize: 17, lineHeight: 1.82, color: "rgba(255,255,255,0.75)" }}>
-                  Aptly Intelligent operates as an extension of executive authority, managing priorities, execution, and operational flow so leaders can focus on decisions, direction, and growth.
+                  Traditional executive support waits to be directed. Aptly operates differently — anticipating needs, managing complexity before it reaches the executive, and building the operational infrastructure that allows leadership to move faster and with greater confidence.
                 </p>
                 <p style={{ fontSize: 15, lineHeight: 1.78, color: "rgba(255,255,255,0.48)" }}>
-                  Support is delivered intentionally, discreetly, and per executive direction.
+                  The distinction is between someone who completes tasks and someone who owns outcomes. Aptly is the latter.
                 </p>
               </div>
               {/* Right — Unlocks */}
@@ -891,7 +893,7 @@ Not task management.
             <div style={{ textAlign: "center", marginBottom: 52 }}>
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.55)", marginBottom: 16 }}>Your ROI</div>
               <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#fff" }}>
-                The Executive Leverage Calculator
+                What Is Your Time Actually Worth?
               </h2>
             </div>
           </Reveal>
@@ -941,7 +943,7 @@ Not task management.
                   </div>
                 </div>
                 <p style={{ fontSize: 14, lineHeight: 1.7, color: "rgba(255,255,255,0.5)", textAlign: "center" }}>
-                  Most founders underestimate the cost of fragmented execution.
+                  The cost of unfocused executive time compounds quietly. Operational partnership changes the equation.
                 </p>
                 <div style={{ textAlign: "center" }}>
                   <button className="btn-primary" onClick={() => go("#contact")} style={{ background: "#fff", color: "#1e3054" }}>
@@ -1085,9 +1087,12 @@ Not task management.
         <div style={{ maxWidth: mw, margin: "0 auto" }}>
           <Reveal>
             <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4a6a9a", marginBottom: 14 }}>Flexible Plans</div>
-            <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054", marginBottom: 14 }}>Partnership Engagements</h2>
-            <p style={{ fontSize: 16, lineHeight: 1.75, color: "#4e607a", maxWidth: 500, marginBottom: 48 }}>
-              Strategic executive support, intentionally scoped.
+            <h2 className="disp" style={{ fontSize: mobile ? "clamp(26px,8vw,38px)" : "clamp(30px,3.6vw,48px)", color: "#1e3054", marginBottom: 20 }}>Partnership Engagements</h2>
+            <p style={{ fontSize: 16, lineHeight: 1.78, color: "#4e607a", maxWidth: 600, marginBottom: 12 }}>
+              Choose the level of partnership that best fits your current stage of growth.
+            </p>
+            <p style={{ fontSize: 15, lineHeight: 1.75, color: "#6a7f98", maxWidth: 620, marginBottom: 48 }}>
+              Every engagement is designed to reduce operational complexity, increase executive capacity, and create sustainable momentum. Whether you need strategic guidance, ongoing partnership, or leadership for a critical initiative, we will identify the right level of support together.
             </p>
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : tablet ? "1fr 1fr" : "repeat(4, 1fr)", gap: 14, marginBottom: 28, alignItems: "stretch" }}>
@@ -1190,7 +1195,7 @@ Not task management.
                 title: "Investor Operations Infrastructure for High-Growth Web3 Firm",
                 challenge: "40,000+ records spread across spreadsheets with limited visibility, inconsistent reporting, and growing operational complexity.",
                 action: "Led migration to HubSpot, coordinated internal stakeholders and engineers, removed duplicate records, built reporting infrastructure, and created operational SOPs.",
-                outcome: "21,000+ duplicate records eliminated, improved investor relationship visibility, increased reporting accuracy, and established scalable operational systems.",
+                outcome: "21,000+ duplicate records eliminated. Reporting accuracy improved across executive teams. CRM became a functional business asset supporting 300+ investor relationships and ongoing partnership development.",
                 tags: ["HubSpot","Investor Ops","Web3","Systems","SOPs"]
               },
               {
@@ -1198,7 +1203,7 @@ Not task management.
                 title: "Global Artist Operations Across 45+ NYFW Productions",
                 challenge: "Delivering consistent, high-quality backstage operations for MAC's Global Artists across 45 New York Fashion Week productions in one of fashion's most demanding environments.",
                 action: "Owned artist coordination, backstage logistics, scheduling, and production support from pre-show preparation through live execution across every production.",
-                outcome: "45+ productions executed without operational disruption. MAC's backstage standards upheld across every show, with seamless coordination between artists, models, and production teams.",
+                outcome: "45+ NYFW productions executed without a single operational failure. Backstage consistency maintained across every show — protecting MAC's brand standards in one of fashion's most demanding environments.",
                 tags: ["NYFW","Artist Coordination","Backstage Ops","Production","Events"]
               },
               {
@@ -1206,7 +1211,7 @@ Not task management.
                 title: "Executive Support Across 50+ Productions and Campaigns",
                 challenge: "Executive priorities, campaign timelines, and cross-functional deliverables moving simultaneously across creative, marketing, and production divisions with limited operational infrastructure.",
                 action: "Embedded as executive support and central coordination partner, managing priorities, tracking deliverables, facilitating stakeholder communication, and driving follow-through across teams.",
-                outcome: "Smoother execution across 50+ productions and campaigns, reduced coordination friction, stronger alignment between executive leadership and production teams, and improved on-time delivery.",
+                outcome: "Execution improved across 50+ productions and campaigns. Cross-team coordination friction reduced, on-time delivery increased, and executive leadership had clear visibility into priorities and progress.",
                 tags: ["Executive Support","Campaign Ops","Stakeholder Management","Creative Ops"]
               },
               {
@@ -1222,7 +1227,7 @@ Not task management.
                 title: "25+ Global Brand Initiatives",
                 challenge: "Coordinating operational execution across multiple luxury beauty brands with global teams, tight timelines, and high-visibility stakeholder requirements.",
                 action: "Managed launches, events, stakeholder communications, and cross-functional delivery across international brand teams.",
-                outcome: "25+ global brand initiatives executed on time, with improved communication flow and cross-functional coordination across luxury brand portfolios.",
+                outcome: "25+ global initiatives executed on time across multiple luxury brand portfolios. Stakeholder communication improved, cross-functional coordination strengthened, and delivery timelines held.",
                 tags: ["Global Operations","Brand Launches","Cross-Functional","Project Coordination"]
               },
               {
@@ -1230,7 +1235,7 @@ Not task management.
                 title: "AI-Powered Workflow Systems",
                 challenge: "Executives spending significant time on administrative tasks that could be automated, reducing capacity for strategic priorities.",
                 action: "Designed and deployed AI-assisted inbox triage, automated meeting summaries, SOP generation, and custom workflow systems using Claude, ChatGPT, and n8n.",
-                outcome: "Measurable time savings on routine tasks, more consistent follow-through, and operational infrastructure that scales with business growth.",
+                outcome: "Executive time recovered from routine tasks. Documentation and follow-through became consistent and systematic. Operational infrastructure now scales without requiring additional headcount.",
                 tags: ["AI Tools","Executive Support","Workflow Systems","Operations"]
               },
               {
@@ -1398,10 +1403,10 @@ Not task management.
             </Reveal>
             <Reveal delay={100}>
               <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-                {["Most executive challenges are not strategic — they are operational. Priorities without systems. Decisions without infrastructure. Capable teams without coordination. The gap between where a leader wants to go and how quickly the organization gets there is almost always an execution problem.",
-                   "Aptly Intelligent & Co. was built to close that gap. Not by taking on tasks, but by establishing the operational infrastructure, executive rhythms, and coordination systems that allow leadership to operate at full capacity.",
-                   "Fifteen years inside media organizations, global consumer brands, healthcare technology, and high-growth companies has developed something that cannot be taught — the ability to enter a complex environment, understand what is breaking, and build systems that hold.",
-                   "The leaders who engage Aptly are not looking for support. They are looking for an operational partner who can think ahead, act with discretion, and protect their most important resource: focused executive time."].map((p, i) => (
+                {["What separates exceptional operational partners from capable assistants is judgment — the ability to read a situation, anticipate what comes next, and act with the kind of discretion that never requires direction.",
+                   "Jessica Ocasio Salters has spent fifteen years developing that judgment across media conglomerates, global luxury brands, healthcare technology organizations, and high-growth companies. The environments change. The standard of execution does not.",
+                   "Leaders who work with Aptly rarely describe the experience as ‘getting support.’ They describe it as having someone who thinks three steps ahead, reduces the operational noise before it reaches them, and builds the systems that allow them to lead at full capacity — without managing the people responsible for it.",
+                   "Calm under pressure. Precise under complexity. Trusted with the operational details that define whether a leader’s vision actually becomes execution."].map((p, i) => (
                   <p key={i} style={{ fontSize: mobile ? 15 : 16.5, lineHeight: 1.88, color: i === 2 ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.62)" }}>{p}</p>
                 ))}
               </div>
@@ -1446,6 +1451,9 @@ Not task management.
               </Reveal>
             ))}
           </div>
+          <p style={{ fontSize: 12, color: "rgba(26,39,68,0.36)", textAlign: "center", marginTop: 28, fontStyle: "italic" }}>
+            Some names and identifying details have been abbreviated to respect client confidentiality.
+          </p>
         </div>
       </section>
 
@@ -1627,7 +1635,7 @@ Not task management.
                         const intakeMsg = `New Executive Discovery Form Submission\n\nName: ${form.name}\nEmail: ${form.email}\nRole / Title: ${form.role}\nCompany: ${form.company || "Not provided"}\n\nPrimary Need: ${form.need}\n\nWhat's creating the most friction right now:\n${form.friction}\n\nWhat successful support looks like in 90 days:\n${form.outcome}\n\nPreferred start timeline: ${form.timeline}`;
 
                         // Build auto-reply message for submitter
-                        const replyMsg = `<p>Hi ${form.name},</p><p>Thank you for submitting your Executive Discovery Form.</p><p>I have received your submission and will review it personally. You can expect to hear from me within 24 hours with next steps.</p><p>I look forward to learning more about your work.</p><p>Warm regards,<br>Jessica Ocasio-Salters<br>Aptly Intelligent &amp; Co.<br>jessica@aptlyintelligent.com</p>`;
+                        const replyMsg = `<p>Hi ${form.name},</p><p>Thank you for submitting your Executive Discovery Form.</p><p>I have received your submission and will review it personally. You can expect to hear from me within 24 hours with next steps.</p><p>I look forward to learning more about your work.</p><p>Warm regards,<br>Jessica Ocasio Salters<br>Aptly Intelligent &amp; Co.<br>jessica@aptlyintelligent.com</p>`;
 
                         // Email 1: Intake notification to Jessica
                         await fetch("https://api.emailjs.com/api/v1.0/email/send", {
