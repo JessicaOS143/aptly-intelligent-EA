@@ -813,7 +813,7 @@ export default function App() {
                 justifyContent: "center", gap: "8px 0",
                 boxShadow: "0 4px 20px rgba(30,48,84,0.2)",
               }}>
-                {["Paramount","BET","Nickelodeon","Medidata","Estée Lauder","MAC Cosmetics","Jo Malone","La Mer","IBC Group"].map((item, i, arr) => (
+                {["Paramount","BET","Nickelodeon","Medidata","Estée Lauder","MAC Cosmetics","Jo Malone","La Mer","YSL Beauté","IBC Group"].map((item, i, arr) => (
                   <span key={i} style={{ display: "inline-flex", alignItems: "center" }}>
                     <span style={{
                       fontSize: mobile ? 12 : 13, color: "rgba(255,255,255,0.82)",
